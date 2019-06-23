@@ -45,7 +45,7 @@ class Menu extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
+            'title' => 'Sarlavha',
             'slug' => 'Slug',
             'template_id' => 'Template ID',
             'tree' => 'Tree',
