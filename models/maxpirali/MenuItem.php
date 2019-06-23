@@ -3,6 +3,8 @@
 namespace app\models\maxpirali;
 
 use Yii;
+use app\models\maxpirali\MenuItemTrans;
+
 
 /**
  * This is the model class for table "in_menu_item".
@@ -67,5 +69,32 @@ class MenuItem extends \yii\db\ActiveRecord
             'created_date' => 'Created Date',
             'updated_date' => 'Updated Date',
         ];
+    }
+    public function translate($slug)
+    {
+        $result = MenuItemTrans::find()->where(['item_id'=>$this->id, 'lang'=>Yii::$app->language])->asArray()->one();
+        $this->load($result,'');
+        echo "<pre>";var_dump($this); die;
+        switch ($slug) {
+            case 'title':
+                $res = ($result)?$result->title:$this->title;
+                break;
+            case 'short':
+                $res = ($result)?$result->short:$this->short;
+                break;
+            case 'text':
+                $res = ($result)?$result->text:$this->text;
+                break;
+            
+            default:
+                $res = 'xato yozding';
+                break;
+        }
+        return $res;
+    }
+
+    public static function find()
+    {
+        return parent::find()->where(['<>', 'status', 0]);
     }
 }
