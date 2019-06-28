@@ -3,6 +3,7 @@
 namespace app\models\maxpirali;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 use app\models\maxpirali\MenuTrans;
 
 /**
@@ -55,25 +56,41 @@ class Menu extends \yii\db\ActiveRecord
             'updated_date' => 'Updated Date',
         ];
     }
-    public static function Menus($tree = false)
+    public static function Menus($id = false)
     {
-        if ($tree) return Menu::find()->where(['tree'=>$tree])->orderBy(['tree'=>SORT_ASC])->all();
-        else return Menu::find()->all();
+        if ($id) {
+            $menu = self::find()->where(['id' => $id])->one();
+            $ota = ArrayHelper::toArray($menu);
+            $children = self::find()->where(['child'=>$menu->id])->all();
+            if ($children) {
+                foreach ($children as $key => $value) {
+                    $ota['children'][] = self::menus($value->id);
+                }
+            }
+        }else{
+            $menus = self::find()->where(['child' => 0])->all();
+            foreach ($menus as $key => $value) {
+                $ota[$value->id] = ArrayHelper::toArray($value);
+                $children = self::find()->where(['child'=>$value->id])->all();
+                if ($children) {
+                    foreach ($children as $key1 => $value1) {
+                        $ota[$value->id]['children'][] = self::menus($value1->id);
+                    }
+                }
+            }
+        }
+        // $menus = load($ota);
+        return $ota;
     }
     public function getMenu()
     {
         return $this->hasMany(MenuTrans::className(), ['menu_id' => 'id']);
     }
-    public function lang()
-    {
-        $lang = Yii::$app->language;
-        $menu = MenuTrans::find()->where(['menu_id' => $this->id, 'lang' => $lang])->one();
-        if (!$menu) {
-            return $this->title;
-        }else{
-            return $menu->title;
-        }        
-        // echo '<pre>'; var_dump($menu); exit;
+    public function afterFind(){
+        $result = MenuTrans::find()->where(['menu_id'=>$this->id, 'lang'=>Yii::$app->language])->asArray()->one();
+        // var_dump($result); die;
+        $this->title = ($result['title'])?$result['title']:$this->title;
+        parent::afterFind();
     }
     public function template()
     {

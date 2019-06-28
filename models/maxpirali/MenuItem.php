@@ -70,27 +70,11 @@ class MenuItem extends \yii\db\ActiveRecord
             'updated_date' => 'Updated Date',
         ];
     }
-    public function translate($slug)
-    {
+
+    public function afterFind(){
         $result = MenuItemTrans::find()->where(['item_id'=>$this->id, 'lang'=>Yii::$app->language])->asArray()->one();
         $this->load($result,'');
-        echo "<pre>";var_dump($this); die;
-        switch ($slug) {
-            case 'title':
-                $res = ($result)?$result->title:$this->title;
-                break;
-            case 'short':
-                $res = ($result)?$result->short:$this->short;
-                break;
-            case 'text':
-                $res = ($result)?$result->text:$this->text;
-                break;
-            
-            default:
-                $res = 'xato yozding';
-                break;
-        }
-        return $res;
+        parent::afterFind();
     }
 
     public static function find()

@@ -47,7 +47,7 @@ class TextTranslate extends \yii\db\ActiveRecord
             'slug' => 'Slug',
             'text' => 'Text',
             'status' => 'Status',
-            'updated_date' => 'Updated Date',
+            // 'updated_date' => 'Updated Date',
         ];
     }
 }

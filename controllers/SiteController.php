@@ -10,6 +10,10 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\SignupForm;
+use yii\data\Pagination;
+use app\models\maxpirali\Menu;
+use app\models\maxpirali\MenuItem;
+use app\models\maxpirali\MenuItemTrans;
 
 class SiteController extends Controller
 {
@@ -60,8 +64,28 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionIndex()
+    public function actionIndex($id = '')
     {
+        // Yii::$app->language = 'ru-RU';
+        if ($id) {
+            $menu = Menu::findOne($id);
+            $items = MenuItem::findAll(['menu_id'=>$id]);
+            switch (count($items)) {
+                case 0:
+                    return $this->render('error');
+                    break;
+
+                case 1:
+                    return $this->renderPage($items,$menu);
+                    break;
+                
+                default:
+                    return $this->renderPages($id);
+                    break;
+            }
+            return $this->render('/'.$menu->template().'/pages');
+        }
+            // echo "<pre>"; var_dump(Yii::$app->language); die;
         return $this->render('index');
     }
 
@@ -139,6 +163,27 @@ class SiteController extends Controller
 
         return $this->render('signup', [ // Просто рендерим вид если один из if вернул false
             'model' => $model,
+        ]);
+    }
+    public function renderPage($item,$menu)
+    {
+        $item = $item[0];
+        return $this->render('/'.$menu->template().'/page',['model'=>$item,'menu'=>$menu]);
+    }
+    public function renderPages($id)
+    {
+        $menu = Menu::findOne($id);
+        $query = MenuItem::find()->where(['menu_id'=>$id]);
+        $countQuery = clone $query;
+        $pages = new Pagination(['totalCount' => $countQuery->count(),'pageSize' => 12 ]);
+        $models = $query->offset($pages->offset)
+            ->limit($pages->limit)
+            ->all();
+        // echo "<pre>";var_dump($item); die;
+        return $this->render('/'.$menu->template().'/pages',[
+            'model' => $models, 
+            'pages' => $pages, 
+            'menu' => $menu
         ]);
     }
 }
