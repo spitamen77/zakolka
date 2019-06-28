@@ -35,7 +35,7 @@ class TextTranslate extends \yii\db\ActiveRecord
     {
         return [
             [['slug', 'text'], 'required'],
-            [['slug'], 'unique','message'=>Lang::t("Bunday slug mavjud")],
+          //  [['slug'], 'unique','message'=>Lang::t("Bunday slug mavjud")],
             [['status', 'updated_date'], 'integer'],
             [['lang', 'slug', 'text'], 'string', 'max' => 128],
         ];

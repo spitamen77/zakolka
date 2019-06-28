@@ -17,6 +17,7 @@ $this->title = Lang::t('Tarjimalar');
     <p>
         <?= Html::a(Lang::t("Yangi so`z qo`shish"), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
+    
 <div class="col-md-8">
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

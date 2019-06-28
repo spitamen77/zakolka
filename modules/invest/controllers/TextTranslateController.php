@@ -76,6 +76,14 @@ class TextTranslateController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
             $model->lang = 'uz-UZ';
+            $slug = TextTranslate::find()->where(['slug'=>$model->slug])->one();
+            if (!empty($slug)) {
+                return $this->render('create', [
+                    'model' => $model,
+                    'error' => "Bunday slug mavjud"
+                ]);
+            }
+           // exit("dadasda");
             if ($model->save()) return $this->redirect(['index']);
             else { 
                 return $this->render('create', [
@@ -125,6 +133,7 @@ class TextTranslateController extends Controller
             return 'dublicate';
         }
         else {
+            //var_dump($_GET['til']);exit;
             $model = new TextTranslate();
             $model->slug = $_GET['til'];
             $model->lang = $_GET['select'];
@@ -143,9 +152,13 @@ class TextTranslateController extends Controller
      */
     public function actionDelete($id)
     {
-        $text = $this->findModel($id);
-        $text->status = TextTranslate::STATUS_DELETE;
-        $text->save();
+         $text = $this->findModel($id);
+         $slug = TextTranslate::find()->where(['slug'=>$text->slug])->all();
+         foreach ($slug as $key => $value) {
+             $value->delete();
+         }
+        // $text->status = TextTranslate::STATUS_DELETE;
+        // $text->save();
         return $this->redirect(['index']);
     }
 
@@ -154,7 +167,7 @@ class TextTranslateController extends Controller
         $text = $this->findModel($_GET['til']);
         if (!empty($text)){
             $text->text= $_GET['val'];
-            $text->save();
+            $text->save(false);
             Yii::$app->response->format='json';
             return ['result' => 'success'];
         }
