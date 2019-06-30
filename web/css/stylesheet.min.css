@@ -13,14 +13,14 @@ span.action-spec {
 	color: transparent;
 	font-size: 17px;
 	width: 100px;
-	background: url('/catalog/view/theme/default/image/sale.png');
+	background: url('/../img/sale.png');
 }
 .product-thumb.transition {
 	overflow: hidden;
 	position: relative;
 }
 .signup, .signup:hover {
-	color: #ab7f4a
+	color: #e40981
 }
 .banner .s-desc .like_h1, .header-row-2 .links a, .module-categories>ul>li>a, .row-heading {
 	text-transform: uppercase;
@@ -186,7 +186,7 @@ button#button-search {
 	line-height: 30px
 }
 .sub a i, .sub a:hover {
-	color: #AB7F4A
+	color: #e40981
 }
 #search .dropdown-menu {
 	width: calc(100% - 40px)
@@ -264,7 +264,7 @@ a, a:focus, a:visited {
 	bottom: 11%;
 	width: 81%;
 	padding: 9px 12px 13px 10px;
-	background: url(../image/banner-desc.png);
+	background-color: #e40981;
 	text-align: right;
 	-webkit-transition: all .5s ease;
 	-moz-transition: all .5s ease;
@@ -422,7 +422,7 @@ footer a {
 	margin-bottom: 0px;
 }
 .breadcrumb span {
-	color: #ab7f4a;
+	color: #e40981;
 	font-weight: 300;
 }
 .breadcrumb * {
@@ -492,10 +492,10 @@ ul.breadcrumb {
 	margin-top: 50px
 }
 ul.pagination li.active span {
-	border: 0 solid #AB7F4A;
+	border: 0 solid #e40981;
 	border-radius: 0;
 	background-color: #fff;
-	color: #AB7F4A;
+	color: #e40981;
 	font-weight: 700
 }
 ul.pagination li.active:hover span {
@@ -542,7 +542,7 @@ ul.pagination li>a {
 .cart>.cart-link {
 	background: #171717;
 	height: 40px;
-	color: #ab7f4a
+	color: #e40981
 }
 .header-row-3 {
 	margin-top: 10px;
@@ -624,11 +624,11 @@ button.btn-default:hover {
 .form-control:active, .form-control:focus {
 	box-shadow: none;
 	outline: 0;
-	border: 1px solid #ab7f4a;
-	color: #ab7f4a
+	border: 1px solid #e40981;
+	color: #e40981
 }
 .modal-header .close {
-	color: #ab7f4a!important;
+	color: #e40981!important;
 	text-shadow: none;
 	opacity: 1;
 	font-weight: 700;
@@ -882,11 +882,11 @@ p.sku {
 }
 .module-categories>ul>li {
 	background: #eee;
-	border-bottom: .5px dashed #ab7f4a;
+	border-bottom: .5px dashed #e40981;
 	/* padding:10px */
 }
 .module-categories>ul>li:hover {
-	background: url(../image/banner-desc.png);
+	background-color: #e40981;
 	cursor: pointer;
 	color: #fff
 }
@@ -1101,7 +1101,7 @@ ul.post-list {
  
 }
 .prikh_btns {
-	color: #ab7f4a;
+	color: #e40981;
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: 22px;

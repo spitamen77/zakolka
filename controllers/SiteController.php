@@ -64,12 +64,13 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionIndex($id = '')
+    public function actionIndex($slug = '')
     {
         // Yii::$app->language = 'ru-RU';
-        if ($id) {
-            $menu = Menu::findOne($id);
-            $items = MenuItem::findAll(['menu_id'=>$id]);
+        if ($slug) {
+            $menu = Menu::find()->where(['slug' => $slug])->one();
+            $items = MenuItem::findAll(['menu_id'=>$menu->id]);
+            // echo "<pre>"; var_dump($items); die;
             switch (count($items)) {
                 case 0:
                     return $this->render('error');
@@ -80,12 +81,11 @@ class SiteController extends Controller
                     break;
                 
                 default:
-                    return $this->renderPages($id);
+                    return $this->renderPages($slug);
                     break;
             }
             return $this->render('/'.$menu->template().'/pages');
         }
-            // echo "<pre>"; var_dump(Yii::$app->language); die;
         return $this->render('index');
     }
 
@@ -170,9 +170,9 @@ class SiteController extends Controller
         $item = $item[0];
         return $this->render('/'.$menu->template().'/page',['model'=>$item,'menu'=>$menu]);
     }
-    public function renderPages($id)
+    public function renderPages($slug)
     {
-        $menu = Menu::findOne($id);
+        $menu = Menu::find()->where(['slug'=>$slug]);
         $query = MenuItem::find()->where(['menu_id'=>$id]);
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count(),'pageSize' => 12 ]);

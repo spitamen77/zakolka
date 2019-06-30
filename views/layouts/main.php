@@ -38,11 +38,14 @@ AppAsset::register($this);
     <?=Yii::$app->controller->renderPartial("//layouts/header")?>
     
     <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
+        <div class="row">
+            <aside id="column-left" class="col-sm-3 hidden-xs">
+                <?=Yii::$app->controller->renderPartial("//layouts/left")?>
+            </aside>
+            <div id="content" class="col-sm-9">
+                <?= $content ?>
+            </div>
+        </div>
     </div>
 <?=Yii::$app->controller->renderPartial("//layouts/footer")?>
 

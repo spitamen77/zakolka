@@ -73,7 +73,9 @@ use app\models\Lang;
         <div class="row">
             <div class="col-xs-12 col-sm-3 logo-container">
                 <div class="logo">
-                <img src="img/logo.png" alt="<?=Lang::t('Organization name')?>"/>
+                    <a href="<?=Url::to('/')?>">
+                        <img src="img/logo.png" alt="<?=Lang::t('Organization name')?>"/>
+                    </a>
                 </div>
             </div>
             <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
@@ -124,9 +126,9 @@ use app\models\Lang;
                 </div>
                 <div class="header-row-2 hidden-xs visible-sm visible-md visible-lg">
                     <ul class="links">
-                        <li><a href="<=Url::to('site/about')>" class="">О нас</a></li>
-                        <li><a href="<=Url::to('site/pricelist')>" class="">Прайс-лист</a></li>
-                        <li><a href="<=Url::to('site/contact')>" class="">Контакты</a></li>
+                        <li><a href="<?=Url::to('site/about')?>" class=""><?=Lang::t('About Us')?></a></li>
+                        <li><a href="<?=Url::to('site/pricelist')?>" class=""><?=Lang::t('Price list')?></a></li>
+                        <li><a href="<?=Url::to('site/contact')?>" class=""><?=Lang::t('Contacts')?></a></li>
                     </ul>
                 </div>
                 <div class="header-row-3">
@@ -134,19 +136,19 @@ use app\models\Lang;
                         <div id="search">
                             <div class="inner">
                                 <button type="button" class="" id="button-search"><i class="fa fa-search"></i></button>
-                                <input type="text" name="search" value="" placeholder="Поиск" id="search-field"/>
+                                <input type="text" name="search" value="" placeholder="<?=Lang::t('search')?>" id="search-field"/>
                             </div>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-4">
                         <div class="cart">
-                            <a class="cart-link dropdown" href="/cart">
-                                <span class="cart-title">Корзина:</span>
-                                <span id="cart-total">0 товаров на сумму 0р.</span>
+                            <a class="cart-link dropdown" href="<?=Url::to('site/cart')?>">
+                                <span class="cart-title"><?=Lang::t('Basket')?>:</span>
+                                <span id="cart-total">5 <?=Lang::t('products worth')?> 10р.</span>
                                 <i class="fa fa-chevron-circle-down" aria-hidden="true"></i>
                                 <ul class="dropdown-menu pull-right">
                                     <li>
-                                        <p class="text-center">Ваша корзина пуста!</p>
+                                        <p class="text-center"><?=Lang::t('your basket is empty')?>!</p>
                                     </li>
                                 </ul>
                             </a>
@@ -160,7 +162,7 @@ use app\models\Lang;
 
 <? function PrintMenu($menu){ ?>
     <? foreach ($menu as $value) { ?>
-        <li><a href="<?=Url::to(['site/index', 'id' => $value['id']])?>"><?=$value['title']?></a>
+        <li><a href="<?=Url::to(['site/index', 'slug' => $value['slug']])?>"><?=$value['title']?></a>
             <? if ($value['children']) { ?>
                 <!-- <ul> -->
                     <? //PrintMenu($value['children']); ?>
