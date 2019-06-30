@@ -17,9 +17,9 @@ if (Yii::$app->controller->action->id === 'login') {
 } else {
 
     if (class_exists('backend\assets\AppAsset')) {
-        backend\assets\AppAsset::register($this);
+        backend\assets\BaseAsset::register($this);
     } else {
-        app\assets\AppAsset::register($this);
+        app\assets\BaseAsset::register($this);
     }
 
     dmstr\web\AdminLteAsset::register($this);

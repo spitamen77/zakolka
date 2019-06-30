@@ -55,7 +55,14 @@ class Lang extends \yii\db\ActiveRecord
     {
         $matn = self::find()->where(['lang'=>self::getCurrentLang(), 'status'=>1, 'slug'=>$message])->asArray()->one();
         if(!empty($matn)) return $matn['text'];
-        else return $message;
+        else {
+            $matn = self::find()->where(['lang'=>'uz-UZ', 'status'=>1, 'slug'=>$message])->asArray()->one();
+            if (!empty($matn)) {
+                return $matn['text'];
+            }else{
+                return $message;
+            }
+        }
     }
 
     public static function getCurrentLang()

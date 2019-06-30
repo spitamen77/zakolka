@@ -50,4 +50,7 @@ class TextTranslate extends \yii\db\ActiveRecord
             // 'updated_date' => 'Updated Date',
         ];
     }
+    public static function Text($slug){
+        return TextTranslate::find()->where(['slug' => $slug, 'lang' => Yii::$app->language])->one();
+    }
 }
