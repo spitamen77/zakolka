@@ -13,7 +13,7 @@ use app\models\Lang;
  * @property string $image
  * @property int $status
  */
-class Photo extends \yii\db\ActiveRecord
+class Rasm extends \yii\db\ActiveRecord
 {
     const STATUS_ACTIVE=1;
     const STATUS_INACTIVE=0;
@@ -23,7 +23,7 @@ class Photo extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'in_photo';
+        return 'in_rasm';
     }
 
     /**
@@ -33,18 +33,10 @@ class Photo extends \yii\db\ActiveRecord
     {
         return [
             // [['slug'], 'required'],
-            [['status'], 'integer'],
-            [['slug','info'], 'string', 'max' => 255],
-            [['image'],'file','maxFiles' => 10]
+            [['photo_id'], 'integer'],
+            // [['src'], 'string', 'max' => 255],
+            [['src'],'file','maxFiles' => 10]
         ];
-    }
-
-    public function beforeSave($insert){
-        if($insert){
-//            $this->child = 0;
-            $this->status = self::STATUS_ACTIVE;
-        }
-        return parent::beforeSave($insert);
     }
 
     /**
@@ -54,10 +46,10 @@ class Photo extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'slug' => Lang::t('Slug'),
-            'image' => Lang::t("Image"),
-            'info' => Lang::t("Description"),
-            'status' => 'Status',
+            'photo_id' => Lang::t('Photo'),
+            'src' => Lang::t("Path"),
+            // 'info' => Lang::t("Description"),
+            // 'status' => 'Status',
         ];
     }
 
