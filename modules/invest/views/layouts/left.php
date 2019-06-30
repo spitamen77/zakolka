@@ -34,8 +34,9 @@
                     ['label' => 'Menu', 'icon' => 'file-code-o', 'url' => ['/invest/menu/index']],
                     ['label' => 'Maqolalar', 'icon' => 'file-code-o', 'url' => ['/invest/menu-item/index']],
                     ['label' => 'Tarjimalar', 'icon' => 'file-code-o', 'url' => ['/invest/text-translate/index']],
-                    // ['label' => 'Menu', 'icon' => 'file-code-o', 'url' => ['/invest/menu/index']],
-                    ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
+                    ['label' => 'Rasm', 'icon' => 'file-code-o', 'url' => ['/invest/photo/index']],
+                    ['label' => 'User', 'icon' => 'file-code-o', 'url' => ['/invest/user/index']],
+                    // ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     // [
                     //     'label' => 'Some tools',
