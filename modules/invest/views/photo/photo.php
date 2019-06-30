@@ -12,15 +12,10 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="photo-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
-<div class="text-danger">
-        <?php 
-            if (isset($error)) {
-                echo $error;
-            }
-        ?>
-    </div>
-    <?= $this->render('_form', [
+    <?= $this->render('form2', [
         'model' => $model,
+        'kod'=>$kod,
+        'image'=>$image
     ]) ?>
 
 </div>
