@@ -168,22 +168,24 @@ class SiteController extends Controller
     public function renderPage($item,$menu)
     {
         $item = $item[0];
+        $item->views += 1;
+        $item->save(false);
         return $this->render('/'.$menu->template().'/page',['model'=>$item,'menu'=>$menu]);
     }
     public function renderPages($slug)
     {
-        $menu = Menu::find()->where(['slug'=>$slug]);
-        $query = MenuItem::find()->where(['menu_id'=>$id]);
+        $menu = Menu::find()->where(['slug'=>$slug])->one();
+        $query = MenuItem::find()->where(['menu_id'=>$menu->id]);
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count(),'pageSize' => 12 ]);
         $models = $query->offset($pages->offset)
             ->limit($pages->limit)
             ->all();
-        // echo "<pre>";var_dump($item); die;
+        // echo "<pre>";var_dump($models); die;
         return $this->render('/'.$menu->template().'/pages',[
             'model' => $models, 
             'pages' => $pages, 
-            'menu' => $menu
+            'menu' => $menu1
         ]);
     }
 }
