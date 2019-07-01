@@ -2,35 +2,33 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\models\Lang;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\dilshod\User */
+/* @var $model app\models\dilshod\Menu */
 /* @var $form yii\widgets\ActiveForm */
 ?>
+<div class="col-md-8">
+    <div class="menu-form">
 
-<div class="user-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+
+
+    <?php $form = ActiveForm::begin(['options'=>['enctype'=>'multipart/form-data']]); ?>
+<!--        --><?// var_dump($model->image); die;?>
+    <img width="100px" src="/web/<?=$model->image?>"
+
+    <?= $form->field($model,'image')->fileInput()->label(false);?>
 
     <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'auth_key')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'password_hash')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'password_reset_token')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'fio')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'status')->textInput() ?>
+    <?= $form->field($model, 'tel')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'wrong_pass')->textInput() ?>
 
-    <?= $form->field($model, 'admin_seen')->textInput() ?>
-
-    <?= $form->field($model, 'created_at')->textInput() ?>
-
-    <?= $form->field($model, 'updated_at')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
@@ -38,4 +36,6 @@ use yii\widgets\ActiveForm;
 
     <?php ActiveForm::end(); ?>
 
+
+</div>
 </div>

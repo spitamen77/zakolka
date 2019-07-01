@@ -16,6 +16,7 @@ $this->title = Lang::t('Tarjimalar');
 
     <p>
         <?= Html::a(Lang::t("Yangi so`z qo`shish"), ['create'], ['class' => 'btn btn-success']) ?>
+        <a href='javascript:history.back()' class='btn btn-danger'>ortga</a>
     </p>
     
 <div class="col-md-8">
@@ -96,6 +97,7 @@ $this->title = Lang::t('Tarjimalar');
             ],
         ],
     ]); ?>
+
 </div>
 </div>
 <!-- Modal update -->

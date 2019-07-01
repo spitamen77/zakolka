@@ -27,7 +27,6 @@ use app\models\Lang;
         <label class="control-label" for="checkbox"><?=Lang::t('Auksion savdo')?></label>
         <input type="checkbox" name="checkbox">
     </div> -->
-    <?= $form->field($model, 'status')->dropDownList($model->getStatus()); ?>
     <div id="display" style="display: none;">
     <?= $form->field($model, 'price')->textInput(['class' => 'your form-control']) ?>
 

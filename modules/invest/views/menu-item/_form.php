@@ -3,12 +3,12 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use app\models\Lang;
-
+use dosamigos\tinymce\TinyMce;
 /* @var $this yii\web\View */
 /* @var $model app\models\dilshod\MenuItem */
 /* @var $form yii\widgets\ActiveForm */
 ?>
-
+<div class="">
 <div class="menu-item-form">
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
@@ -21,12 +21,24 @@ use app\models\Lang;
 
     <?= $form->field($model, 'short')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'text')->widget(TinyMce::className(), [
+    'options' => ['rows' => 6],
+    'language' => 'es',
+    'clientOptions' => [
+        'plugins' => [
+            "advlist autolink lists link charmap print preview anchor",
+            "searchreplace visualblocks code fullscreen",
+            "insertdatetime media table contextmenu paste"
+        ],
+        'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+    ]
+]);?>
+
+    <?//= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
     <!-- <div class="form-control">
         <label class="control-label" for="checkbox"><?=Lang::t('Auksion savdo')?></label>
         <input type="checkbox" name="checkbox">
     </div> -->
-    <?= $form->field($model, 'status')->dropDownList($model->getStatus()); ?>
     <div id="display" style="display: none;">
     <?= $form->field($model, 'price')->textInput(['class' => 'your form-control']) ?>
 
@@ -58,3 +70,4 @@ use app\models\Lang;
 ?>
 
 
+</div>

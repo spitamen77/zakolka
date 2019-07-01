@@ -5,15 +5,20 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
+<!--                <img src="--><?//= $directoryAsset ?><!--/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>-->
+
+                <img src="/web/<?=Yii::$app->user->identity->image?>" class="img-circle" alt="User Image"/>
             </div>
             <div class="pull-left info">
-                <p>Alexander Pierce</p>
-
+                <a href="<?=Yii::$app->UrlManager->createUrl('/invest/.')?>"
+                <p>www.invest.uz</p>
+                </a>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
-
+        <a href="<?=Yii::$app->UrlManager->createUrl('/invest/user/user')?>">
+        <p style="color: white" align="center"><?=Yii::$app->user->identity->fio?></p>
+        </a>
         <!-- search form -->
         <!-- <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
@@ -35,8 +40,7 @@
                     ['label' => 'Maqolalar', 'icon' => 'file-code-o', 'url' => ['/invest/menu-item/index']],
                     ['label' => 'Tarjimalar', 'icon' => 'file-code-o', 'url' => ['/invest/text-translate/index']],
                     ['label' => 'Rasm', 'icon' => 'file-code-o', 'url' => ['/invest/photo/index']],
-                    ['label' => 'User', 'icon' => 'file-code-o', 'url' => ['/invest/user/index']],
-                    // ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
+                    ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     // [
                     //     'label' => 'Some tools',

@@ -28,7 +28,17 @@ class DefaultController extends Controller
     public function actionIndex()
     {
     	
-        return $this->render('index');
+//        return $this->render('index');
+//        $item = Project::find();
+        $model = Yii::$app->user->identity;
+//    	return $this->redirect('user/user');
+//        var_dump($item); die();
+        return $this->render('index',[
+            'model'=>$model,
+//            'item'=>$item
+
+        ]);
+
     }
 
     public function actionLogin()

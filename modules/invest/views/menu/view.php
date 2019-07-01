@@ -24,6 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
+        <a href='javascript:history.back()' class='btn btn-danger'>ortga</a>
     </p>
 
     <?= DetailView::widget([
@@ -37,7 +38,13 @@ $this->params['breadcrumbs'][] = $this->title;
             'child',
             'status',
             'user_id',
-            'updated_date',
+//            'updated_date',
+            [
+                'attribute'=>'updated_date',
+                'value'=>function($model){
+                    return date('d-m-Y', $model->updated_date);
+                }
+            ],
         ],
     ]) ?>
 

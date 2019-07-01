@@ -32,7 +32,6 @@ $this->params['breadcrumbs'][] = 'Update';
         <label class="control-label" for="checkbox"><?=Lang::t('Auksion savdo')?></label>
         <input type="checkbox" name="checkbox">
     </div> -->
-    <?= $form->field($model, 'status')->dropDownList($model->getStatus()); ?>
     <div id="display" style="display: <?=($model->template->template_id==1)?"none":"block"?>;">
     <?= $form->field($model, 'price')->textInput(['class' => 'your form-control']) ?>
 
@@ -42,6 +41,7 @@ $this->params['breadcrumbs'][] = 'Update';
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <a href='javascript:history.back()' class='btn btn-danger'>ortga</a>
     </div>
 
     <?php ActiveForm::end(); ?>
