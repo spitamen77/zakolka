@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use app\models\Lang;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\dilshod\UserSearch */
@@ -31,10 +32,40 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'password_hash',
             // 'password_reset_token',
             'email:email',
-            'status',
+            // 'status',
+            [
+              'attribute' => 'status',
+              'filter' => false,
+              // 'format' => 'raw',
+               'value' => function ($model) {
+                   return  $model->getStatus()[$model->status];
+               },
+            ],
             //'wrong_pass',
-            //'admin_seen',
-            'created_at',
+            'phone',
+            // 'admin_seen',
+            // 'image',
+            // 'created_at',
+            [
+              'attribute' => 'created_at',
+              'filter' => false,
+              // 'format' => 'raw',
+               'value' => function ($model) {
+                   return  date("Y-m-d",$model->created_at);
+               },
+            ],
+            [
+             'attribute' =>  Lang::t("Rasm"),
+             'format' => 'raw',
+             'value' => function ($model) {   
+                if (!empty($model->image))
+                  return '<img src="/web/'.$model->image.'" width="64px" height="auto">'; 
+                else return Lang::t('Rasm yuklanmagan');
+             },
+            ],
+            //'fio',
+            //'tel',
+            //'birthdate',
             //'updated_at',
 
             ['class' => 'yii\grid\ActionColumn'],

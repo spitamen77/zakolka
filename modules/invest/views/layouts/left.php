@@ -40,7 +40,7 @@
                     ['label' => 'Maqolalar', 'icon' => 'file-code-o', 'url' => ['/invest/menu-item/index']],
                     ['label' => 'Tarjimalar', 'icon' => 'file-code-o', 'url' => ['/invest/text-translate/index']],
                     ['label' => 'Rasm', 'icon' => 'file-code-o', 'url' => ['/invest/photo/index']],
-                    ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
+                    ['label' => 'User', 'icon' => 'dashboard', 'url' => ['/invest/user/index']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     // [
                     //     'label' => 'Some tools',

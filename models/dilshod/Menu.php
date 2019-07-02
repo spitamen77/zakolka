@@ -38,7 +38,7 @@ class Menu extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'slug', ], 'required'],
-            ['slug', 'unique'],
+            ['slug', 'unique', 'message'=>"Slug mavjud"],
             [['template_id', 'tree','child', 'status', 'user_id', 'updated_date'], 'integer'],
             [['title', 'slug'], 'string', 'max' => 128],
         ];
