@@ -34,9 +34,9 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
         'js/addthis_widget.js',
-        'js/all.min.js',
+        // 'js/all.min.js',
         'js/analytics.js',
-        'js/bundle_ru_RU.js',
+        // 'js/bundle_ru_RU.js',
         'js/cart_js.js',
         'js/common.min.js',
         'js/exform.js',
