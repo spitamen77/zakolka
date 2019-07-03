@@ -178,10 +178,11 @@ class SiteController extends Controller
     public function renderPages($slug)
     {
         $menu = Menu::find()->where(['slug'=>$slug])->one();
-        $query = MenuItem::find()->where(['menu_id'=>$menu->id])->orderBy(['id'=>SORT_DESC]);
+        $query = MenuItem::find()->where(['menu_id'=>$menu->id])->andWhere(['status'=>MenuItem::STATUS_ACTIVE]);
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count(),'pageSize' => 12 ]);
         $models = $query->offset($pages->offset)
+            ->orderBy(['id'=>SORT_DESC])
             ->limit($pages->limit)
             ->all();
         // echo "<pre>";var_dump($models); die;
