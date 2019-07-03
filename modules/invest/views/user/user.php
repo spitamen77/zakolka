@@ -45,7 +45,7 @@ $this->title = 'Profil';
                     return date('d-m-Y', $model->birthdate);
                 }
             ],
-        'phone',
+        'tel',
         'email',
       
             // 'title',

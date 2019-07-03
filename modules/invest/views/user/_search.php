@@ -15,29 +15,26 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+   
 
     <?= $form->field($model, 'username') ?>
 
-    <?= $form->field($model, 'auth_key') ?>
+  
 
-    <?= $form->field($model, 'password_hash') ?>
-
-    <?= $form->field($model, 'password_reset_token') ?>
-
-    <?php // echo $form->field($model, 'email') ?>
+ 
+    <?php  echo $form->field($model, 'email') ?>
 
     <?php // echo $form->field($model, 'status') ?>
 
     <?php // echo $form->field($model, 'wrong_pass') ?>
 
-    <?php // echo $form->field($model, 'phone') ?>
+    <?php  echo $form->field($model, 'tel') ?>
 
     <?php // echo $form->field($model, 'admin_seen') ?>
 
     <?php // echo $form->field($model, 'image') ?>
 
-    <?php // echo $form->field($model, 'fio') ?>
+    <?php  echo $form->field($model, 'fio') ?>
 
     <?php // echo $form->field($model, 'tel') ?>
 

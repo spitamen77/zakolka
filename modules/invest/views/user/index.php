@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
                },
             ],
             //'wrong_pass',
-            'phone',
+            'tel',
             // 'admin_seen',
             // 'image',
             // 'created_at',
