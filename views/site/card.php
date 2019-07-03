@@ -25,6 +25,7 @@ $this->title = Lang::t('Shopping cart');
                                     <th class="width-10"><?= Lang::t('Delete') ?></th>
 
                                 </tr>
+                                <?php if ($items->goods) :?>
                                 <?php foreach ($items->goods as $item) : ?>
                                 <tr>
                                     <td class="width-150 center"><a href="#" src="<?= $item->item->photo ?>"></a></td>
@@ -35,6 +36,7 @@ $this->title = Lang::t('Shopping cart');
                                             <i class="fa fa-times-circle"></i></a></td>
                                 </tr>
                                 <?php endforeach; ?>
+                            <?php endif;?>
                                 </tbody>
                                 <tfoot>
                                 <tr>
