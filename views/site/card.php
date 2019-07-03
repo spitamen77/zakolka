@@ -32,7 +32,7 @@ $this->title = Lang::t('Shopping cart');
                                     <td><a href="#">&nbsp;<h3><?= $item->item->title ?></h3></a></td>
                                     <td class="center"><h3><?= $item->item->price ?></h3> UZS</td>
 
-                                    <td class="width-10 center"><a class="remove-item remove" href="#" data-id="<?=$item->order_id?>" data-value="<?= $item->price ?>" title="<?= Lang::t('Remove Item From Cart') ?>">
+                                    <td class="width-10 center"><a class="remove-item remove" href="#" data-id="<?=$item->good_id?>" data-value="<?= $item->price ?>" title="<?= Lang::t('Remove Item From Cart') ?>">
                                             <i class="fa fa-times-circle"></i></a></td>
                                 </tr>
                                 <?php endforeach; ?>
@@ -71,7 +71,7 @@ $this->registerJs('
         // value = Number(value);
         // summa = Number(summa);
         console.log(data);
-        $.post("/site/delete/"+data,{},function(response){
+        $.get("/site/delete",{good_id: data},function(response){
             if(response.result=="success") {console.log("success");
             window.location.reload();}
             else console.log(response.result);
