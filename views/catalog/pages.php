@@ -7,6 +7,7 @@ use app\models\maxpirali\MenuItem;
 use app\models\Lang;
 use yii\widgets\LinkPager;
 
+// var_dump(Yii::$app->request->userIP);exit;
 $this->title = $menu->title;
 ?>
    <div class="col-xs-12 nopads">
@@ -52,7 +53,7 @@ $this->title = $menu->title;
                   </div>
                </div>
                &#65279;
-               <button type="button" class="cart-button cart-button-krl " enabled="enabled" onclick="cart.add('4959'); yaCounter48531482.reachGoal('zvonok1'); return true;"><?=Lang::t("Sotib olish")?></button>
+               <button type="button" class="cart-button cart-button-krl" data-id="<?=$value->id?>"><?=Lang::t("Sotib olish")?></button>
                <!-- Button fastorder -->
                <!-- <div class="button-gruop"> -->
                   <!-- Button fastorder -->
@@ -95,38 +96,42 @@ $this->title = $menu->title;
       <?php foreach (MenuItem::getXit($menu->id) as $item) :?>
       <div class="product-layout col-lg-4 col-md-4 col-sm-6 col-xs-12">
          <div class="product-thumb transition">
-            <div class="image"><a href="https://lafrance-accessories.ru/shushu-tkanevaja-bolshaja-ch150-blmotifs"><img src="<?=$item->photo?>" alt="<?=$item->translate->title?>" title="<?=$item->translate->title?>" class="img-responsive"></a></div>
-            <div class="<?=$item->translate->title?>">
-               <a href="https://lafrance-accessories.ru/shushu-tkanevaja-bolshaja-ch150-blmotifs" class="prd-name"><?=$item->translate->title?></a>        
-               <p class="sku"><strong>Артикул:</strong>CH150-BL motifs</p>
+            <div class="image">
+              <a href="https://lafrance-accessories.ru/zakolka-avtomat/zakolka-avtomat-lakres-8751gm-confetti">
+                <img src="<?=$item->photo?>" alt="<?=$item->translate->title?>" title="<?=$item->translate->title?>" class="img-responsive">
+              </a>
+            </div>
+            <div class="caption">
+               <a href="https://lafrance-accessories.ru/zakolka-avtomat/zakolka-avtomat-lakres-8751gm-confetti" class="prd-name"><?=$item->translate->title?></a>        
+               <p class="sku"><strong>Артикул:</strong>8751GM-CONFETTI</p>
                <div class="price-container-c">
                   <div>
                      <span class="rozn-price-name">Розница:</span>
-                     <span class="price-new">360р.</span>
+                     <span class="price-new">0р.</span>
                   </div>
                   <div>
                      <span class="opt-price-name">Опт:</span><span class="opt-price-null">--</span>
                   </div>
                </div>
-               <button type="button" class="cart-button cart-button-krl " enabled="enabled" onclick="cart.add('5034'); yaCounter48531482.reachGoal('zvonok1'); return true;">Купить</button>
+               &#65279;
+               <button type="button" class="cart-button cart-button-krl" data-id="<?=$item->id?>"><?=Lang::t("Sotib olish")?></button>
                <!-- Button fastorder -->
                <!-- <div class="button-gruop"> -->
                   <!-- Button fastorder -->
-                  <!-- <button type="button" id="btn-formcall5034" class="btn btn-danger btn-lg btn-block btn-fastorder">
-                  Купить в один клик</button>
-                  <div id="fastorder-form-container5034"></div>
+                 <!--  <button type="button" id="btn-formcall4959" class="btn btn-danger btn-lg btn-block btn-fastorder"><?=Lang::t("Hoziroq sotib olish")?></button>
+                  <div id="fastorder-form-container4959"></div>
                   <script type="text/javascript">
-                     $('#btn-formcall5034').on('click', function() {
+                     $('#btn-formcall4959').on('click', function() {
                        var data = [];
                      
-                       data['product_name']    = 'ШУШУ ТКАНЕВАЯ БОЛЬШАЯ';
-                       data['price']           = '360';
-                       data['product_id']      = '5034';
-                       // data['product_link']    = 'https://lafrance-accessories.ru/zakolka-avtomat/shushu-tkanevaja-bolshaja-ch150-blmotifs';
+                       data['product_name']    = 'Заколка-автомат ЛАКРЕС';
+                       data['price']           = '0';
+                       data['product_id']      = '4959';
+                       // data['product_link']    = 'https://lafrance-accessories.ru/zakolka-avtomat/zakolka-avtomat-lakres-8751gm-confetti';
                      
                        showForm(data);
                      });
-                  </script>    -->           
+                  </script>   -->            
                <!-- </div> -->
                <!-- END :  button fastorder -->
             </div>
@@ -135,3 +140,21 @@ $this->title = $menu->title;
       <?php endforeach; ?>
    </div>
 
+<?php
+$this->registerJs('
+    $(".cart-button-krl").click(function(e){
+        // e.preventDefault();
+        var items = $(this).attr("data-id");
+        console.log(items);
+        $.get("/site/sale",{item: items},function(response){
+            
+                if(response.result=="success"){
+                    //window.location.reload();
+                    
+                    console.log(response.result);
+                } else console.log(response.result);
+            });
+    });
+');
+
+?>

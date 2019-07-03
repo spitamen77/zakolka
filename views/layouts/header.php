@@ -3,8 +3,9 @@ use yii\helpers\Url;
 use yii\helpers\Html;
 use app\models\maxpirali\Menu;
 use app\models\Lang;
+use app\models\ShopcartOrders;
 
-
+$goods = ShopcartOrders::goods();
 ?>
 
 <div class="modal fade" id="download_after_register" role="dialog">
@@ -142,9 +143,10 @@ use app\models\Lang;
                     </div>
                     <div class="col-xs-12 col-sm-4">
                         <div class="cart">
+                            
                             <a class="cart-link dropdown" href="<?=Url::to('site/cart')?>">
                                 <span class="cart-title"><?=Lang::t('Basket')?>:</span>
-                                <span id="cart-total">5 <?=Lang::t('products worth')?> 10р.</span>
+                                <span id="cart-total"><b><?=($goods->count)?$goods->count:0?></b> <?=Lang::t('products worth')?> <?=($goods->cost)?$goods->cost:0?> so`m</span>
                                 <i class="fa fa-chevron-circle-down" aria-hidden="true"></i>
                                 <ul class="dropdown-menu pull-right">
                                     <li>

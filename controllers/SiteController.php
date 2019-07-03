@@ -10,6 +10,8 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\SignupForm;
+use app\models\ShopcartGoods;
+use app\models\ShopcartOrders;
 use yii\data\Pagination;
 use app\models\maxpirali\Menu;
 use app\models\maxpirali\MenuItem;
@@ -188,5 +190,36 @@ class SiteController extends Controller
             'pages' => $pages, 
             'menu' => $menu
         ]);
+    }
+
+    public function actionSale()
+    {
+        $item_id = $_GET['item'];
+        $good = ShopcartGoods::saved($item_id);
+        if ($good=="success") {
+            Yii::$app->response->format='json';
+            return ['result' => 'success'];
+        }
+        else {
+            Yii::$app->response->format='json';
+            return ['result' => 'error'];
+        }
+    }
+
+    public function actionCart()
+    {
+        $order = ShopcartOrders::goods();
+        // return $this->render('card');
+        return $this->render('card', [
+            'items' => $order,
+        ]);
+    }
+
+    public function actionDelete($good_id)
+    {
+        $good = ShopcartGoods::find()->where(['good_id'=>$good_id])->one();
+        $good->delete();
+        Yii::$app->response->format='json';
+        return ['result' => 'success'];
     }
 }
