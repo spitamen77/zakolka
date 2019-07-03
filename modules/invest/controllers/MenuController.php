@@ -159,6 +159,7 @@ class MenuController extends Controller
     {
         $text = $this->findModel($id);
         $text->status = Menu::STATUS_DELETE;
+        $text->slug = uniqid();
         $text->save();
         $menu = MenuTrans::find()->where(['menu_id'=>$id])->all();
         if (!empty($menu)) {

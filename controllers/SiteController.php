@@ -68,9 +68,9 @@ class SiteController extends Controller
     {
         if ($slug) {
             $menu = Menu::find()->where(['slug' => $slug])->one();
-            $items = MenuItem::findAll(['menu_id'=>$menu->id]);
+            $items = MenuItem::find()->where(['menu_id'=>$menu->id])->orderBy(['id'=>SORT_DESC])->all();
             if ($item_slug) {
-                $items = MenuItem::find()->where(['slug'=>$item_slug])->all();
+                $items = MenuItem::find()->where(['slug'=>$item_slug])->orderBy(['id'=>SORT_DESC])->all();
             }
             switch (count($items)) {
                 case 0:
@@ -156,9 +156,9 @@ class SiteController extends Controller
 
         if ($model->load(Yii::$app->request->post())) { // Если есть, загружаем post данные в модель через родительский метод load класса Model
             if ($user = $model->signup()) { // Регистрация
-                if (Yii::$app->getUser()->login($user)) { // Логиним пользователя если регистрация успешна
+                // if (Yii::$app->getUser()->login($user)) { // Логиним пользователя если регистрация успешна
                     return $this->goHome(); // Возвращаем на главную страницу
-                }
+                // }
             }
         }
 
@@ -176,7 +176,7 @@ class SiteController extends Controller
     public function renderPages($slug)
     {
         $menu = Menu::find()->where(['slug'=>$slug])->one();
-        $query = MenuItem::find()->where(['menu_id'=>$menu->id]);
+        $query = MenuItem::find()->where(['menu_id'=>$menu->id])->orderBy(['id'=>SORT_DESC]);
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count(),'pageSize' => 12 ]);
         $models = $query->offset($pages->offset)
@@ -186,7 +186,7 @@ class SiteController extends Controller
         return $this->render('/'.$menu->template().'/pages',[
             'model' => $models, 
             'pages' => $pages, 
-            'menu' => $menu1
+            'menu' => $menu
         ]);
     }
 }

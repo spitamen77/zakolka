@@ -26,6 +26,9 @@ use app\models\maxpirali\MenuItemTrans;
  */
 class MenuItem extends \yii\db\ActiveRecord
 {
+    const STATUS_ACTIVE=1;
+    const STATUS_INACTIVE=0;
+    const STATUS_DELETE=9;
     /**
      * @inheritdoc
      */
@@ -80,5 +83,30 @@ class MenuItem extends \yii\db\ActiveRecord
     public static function find()
     {
         return parent::find()->where(['<>', 'status', 0]);
+    }
+
+    public function getTemplate()
+    {
+        return $this->hasOne(Menu::className(), ['id' => 'menu_id']);
+    }
+
+    public function getMenutemplate()
+    {
+        return $this->hasMany(MenuItemTrans::className(), ['item_id' => 'id']);
+    }
+
+    public function getTranslate()
+    {
+        $trans = $this->hasOne(MenuItemTrans::className(), ['item_id' => 'id'])->where(['lang'=>Yii::$app->language]);
+        if (!empty($trans)) return $trans;
+        return $this->hasOne(MenuItemTrans::className(), ['item_id' => 'id'])->where(['lang'=>"uz-UZ"]);
+    }
+
+    public static function getXit($menu_id)
+    {
+        return self::find()->where(['menu_id'=>$menu_id])
+        ->andWhere(['status'=>self::STATUS_ACTIVE])
+        ->orderBy(['views'=>SORT_DESC])
+        ->limit(3)->all();
     }
 }

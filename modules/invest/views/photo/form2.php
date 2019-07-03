@@ -105,7 +105,7 @@ use app\models\Lang;
     <?php foreach ($image as $item) : ?>
         <li class="item template">
             <span class="img-wrap">
-                <img src="../../<?=$item->src?>" alt="">
+                <img src="/web/<?=$item->src?>" alt="">
             </span>
             <span class="delete-link" title="Удалить" data-id="<?=$item->id?>"><?=Lang::t("Delete")?></span>
         </li>

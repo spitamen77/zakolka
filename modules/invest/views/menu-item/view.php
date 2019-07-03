@@ -65,7 +65,7 @@ $this->params['breadcrumbs'][] = $this->title;
              'format' => 'raw',
              'value' => function ($model) {   
                 if (!empty($model->photo))
-                  return '<img src="../../uploads/'.$model->photo.'" width="320px" height="auto">'; 
+                  return '<img src="/web/'.$model->photo.'" width="320px" height="auto">'; 
                 else return Lang::t('Rasm yuklanmagan');
              },
             ],

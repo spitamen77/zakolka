@@ -76,10 +76,14 @@ class MenuItemController extends Controller
                 if (isset($file))
                 {
                     $filename = uniqid() . '.' . $file->extension;
-                    $path = 'uploads/' . $filename;
+                    $path = 'uploads/item';
+                    if (!file_exists($path)) {
+                        mkdir($path,0777,true);
+                    }
+                    $path = 'uploads/item/' . $filename;
                     if ($file->saveAs($path))
                         {
-                            return $filename;
+                            return $path;
                         }
                 }
             }
@@ -124,8 +128,8 @@ class MenuItemController extends Controller
                     if (isset($file))
                     {
                         $filename = uniqid() . '.' . $file->extension;
-                        $path = 'uploads/' . $filename;
-                        $path2 = 'uploads/' . $model2->photo;
+                        $path = 'uploads/item/' . $filename;
+                        $path2 = 'uploads/item/' . $model2->photo;
                         
                         if (is_file($path2)) {
                 // print_r($path2); die;
@@ -133,7 +137,7 @@ class MenuItemController extends Controller
                         }
                         if ($file->saveAs($path))
                         {
-                            return $filename;
+                            return $path;
                         }
                     }
                     else return $model2->photo;
@@ -201,6 +205,7 @@ class MenuItemController extends Controller
     {
         $model = $this->findModel($id);
         $model->status=MenuItem::STATUS_DELETE;
+        $model->slug = uniqid();
         $model->save();
         $menu = MenuItemTrans::find()->where(['item_id'=>$id])->all();
         if (!empty($menu)) {

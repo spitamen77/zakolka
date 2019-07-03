@@ -127,7 +127,7 @@ class PhotoController extends Controller
         if (isset($_FILES["file"])) {
             $temp = explode(".", $_FILES["file"]["name"]);
             $extension = end($temp);
-            $path = 'uploads/gallery/';
+            $path = 'uploads/gallery';
             if (!file_exists($path)) {
                 mkdir($path,0777,true);
             }
