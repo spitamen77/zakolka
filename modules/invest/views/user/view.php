@@ -25,6 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
+        <a href='javascript:history.back()' class='btn btn-danger'>ortga</a>
     </p>
 
     <?= DetailView::widget([

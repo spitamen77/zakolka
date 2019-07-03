@@ -26,6 +26,8 @@ use Yii;
  */
 class ShopcartOrders extends \yii\db\ActiveRecord
 {
+    const ADMIN_SEEN = 1; // Если пользователь Администратор(для части II)
+    const ADMIN_NO_SEEN = 0; // Если пользователь Администратор(для части II)
     /**
      * {@inheritdoc}
      */
@@ -127,5 +129,20 @@ class ShopcartOrders extends \yii\db\ActiveRecord
     public static function goods()
     {
         return self::find()->where(['access_token'=>Yii::$app->session->getId()])->one();
+    }
+
+    public function getStatus()
+    {
+        return [
+        '0' => Lang::t('Maxsulot tanlangan'),
+        '1' => Lang::t('Maxsulot to`ldirilgan'),
+        '2' => Lang::t('Maxsulot yetkazilgan'),
+        // '1' => Lang::t('Admin'),
+    ];
+    }
+
+    public static function shop()
+    {
+        return self::find()->where(['new'=>self::ADMIN_NO_SEEN])->andWhere(['status'=>self::ADMIN_SEEN])->count();
     }
 }

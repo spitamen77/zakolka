@@ -2,7 +2,7 @@
 use yii\helpers\Html;
 use app\models\lang;
 use app\models\dilshod\User;
-
+use app\models\ShopcartOrders;
 /* @var $this \yii\web\View */
 /* @var $content string */
 ?>
@@ -30,6 +30,11 @@ use app\models\dilshod\User;
                         <li>
                             <!-- inner menu: contains the actual data -->
                             <ul class="menu">
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-shopping-cart text-green"></i> <?=ShopcartOrders::shop()?> ta sotib olishga urinish
+                                    </a>
+                                </li>
                                 <li>
                                     <a href="#">
                                         <i class="fa fa-users text-aqua"></i> <?=User::getNew()?> ta Yangi userlar mavjud
