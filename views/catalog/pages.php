@@ -34,7 +34,11 @@ $this->title = $menu->title;
    	<? foreach($model as $value): ?>
       <div class="product-layout col-lg-4 col-md-4 col-sm-6 col-xs-12">
          <div class="product-thumb transition">
-            <div class="image"><a href="https://lafrance-accessories.ru/zakolka-avtomat/zakolka-avtomat-lakres-8751gm-confetti"><img src="image/cache/catalog/IMG_4996-300x300.jpg" alt="Заколка-автомат ЛАКРЕС" title="Заколка-автомат ЛАКРЕС" class="img-responsive"></a></div>
+            <div class="image">
+            	<a href="https://lafrance-accessories.ru/zakolka-avtomat/zakolka-avtomat-lakres-8751gm-confetti">
+            		<img src="image/cache/catalog/IMG_4996-300x300.jpg" alt="Заколка-автомат ЛАКРЕС" title="Заколка-автомат ЛАКРЕС" class="img-responsive">
+            	</a>
+            </div>
             <div class="caption">
                <a href="https://lafrance-accessories.ru/zakolka-avtomat/zakolka-avtomat-lakres-8751gm-confetti" class="prd-name">Заколка-автомат ЛАКРЕС</a>        
                <p class="sku"><strong>Артикул:</strong>8751GM-CONFETTI</p>

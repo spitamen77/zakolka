@@ -84,8 +84,7 @@ class MenuItemController extends Controller
                 }
             }
             $model->photo = rasm($model, 'photo');
-            $model->save();
-            return $this->redirect(['view', 'id' => $model->id]);
+            if($model->save()) return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [

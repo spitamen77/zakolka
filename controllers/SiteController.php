@@ -64,13 +64,14 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionIndex($slug = '')
+    public function actionIndex($slug = '', $item_slug = '')
     {
-        // Yii::$app->language = 'ru-RU';
         if ($slug) {
             $menu = Menu::find()->where(['slug' => $slug])->one();
             $items = MenuItem::findAll(['menu_id'=>$menu->id]);
-            // echo "<pre>"; var_dump($items); die;
+            if ($item_slug) {
+                $items = MenuItem::find()->where(['slug'=>$item_slug])->all();
+            }
             switch (count($items)) {
                 case 0:
                     return $this->render('error');
@@ -165,7 +166,7 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
-    public function renderPage($item,$menu)
+    public function renderPage($item, $menu)
     {
         $item = $item[0];
         $item->views += 1;

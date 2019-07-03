@@ -43,15 +43,15 @@ use app\models\Lang;
  <div id="notification"></div>
  <div class="module-categories">
     <ul>
-    	<? PrintMenu(Menu::menus()); ?>
+    	<?php PrintMenuLeft(Menu::menus()); ?>
     </ul>
  </div>
-<? function PrintMenuLeft($menu){ ?>
+<?php function PrintMenuLeft($menu){ ?>
     <? foreach ($menu as $value) { ?>
         <li><a href="<?=Url::to(['site/index', 'slug' => $value['slug']])?>" class="parent-a"><?=$value['title']?></a>
             <? if ($value['children']) { ?>
                 <!-- <ul> -->
-                    <? //PrintMenu($value['children']); ?>
+                    <? //PrintMenuLeft($value['children']); ?>
                 <!-- </ul> -->
             <?} ?>
         </li>

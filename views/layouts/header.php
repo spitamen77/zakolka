@@ -83,7 +83,7 @@ use app\models\Lang;
                     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><?=Lang::t('menu')?><span class="caret"></span></button>
 
                     <ul class="dropdown-menu">
-                        <? PrintMenu(Menu::menus()); ?>
+                        <?php PrintMenu(Menu::menus()); ?>
                         <? if (Yii::$app->user->isGuest): ?>
                         <li class="divider"></li>
                         <li><a class="signup" href="<?=Url::to(['site/signup'])?>"><?=Lang::t('signup')?></a>
@@ -160,15 +160,14 @@ use app\models\Lang;
     </div>
 </nav>
 
-<? function PrintMenu($menu){ ?>
+<?php function PrintMenu($menu){ ?>
     <? foreach ($menu as $value) { ?>
         <li><a href="<?=Url::to(['site/index', 'slug' => $value['slug']])?>"><?=$value['title']?></a>
-            <? if ($value['children']) { ?>
+            <?// if ($value['children']) { ?>
                 <!-- <ul> -->
                     <? //PrintMenu($value['children']); ?>
                 <!-- </ul> -->
-            <?} ?>
+            <?//} ?>
         </li>
-        <? }  
-    } 
-?>
+        <? } ?>  
+   <? }?>
