@@ -31,7 +31,17 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'wrong_pass') ?>
 
+    <?php // echo $form->field($model, 'phone') ?>
+
     <?php // echo $form->field($model, 'admin_seen') ?>
+
+    <?php // echo $form->field($model, 'image') ?>
+
+    <?php // echo $form->field($model, 'fio') ?>
+
+    <?php // echo $form->field($model, 'tel') ?>
+
+    <?php // echo $form->field($model, 'birthdate') ?>
 
     <?php // echo $form->field($model, 'created_at') ?>
 

@@ -45,8 +45,9 @@ $this->title = 'Profil';
                     return date('d-m-Y', $model->birthdate);
                 }
             ],
-        'tel',
-        'email'
+        'phone',
+        'email',
+      
             // 'title',
             // 'slug',
             // 'template_id',
