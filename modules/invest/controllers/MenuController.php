@@ -75,6 +75,10 @@ class MenuController extends Controller
         $model = new Menu();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $menu = new MenuTrans();
+            $menu->menu_id = $model->id;
+            $menu->lang = 'uz-UZ';
+            $menu->save();
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -96,8 +100,10 @@ class MenuController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $menu = MenuTrans::find()->where(['menu_id'=>$model->id, 'lang'=>'uz-UZ'])->one();
-            $menu->title = $model->title;
-            $menu->save(false);
+            if (!empty($menu)) {
+                $menu->title = $model->title;
+                $menu->save(false);
+            }
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
