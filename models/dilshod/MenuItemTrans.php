@@ -79,4 +79,16 @@ class MenuItemTrans extends \yii\db\ActiveRecord
             'en-US'=>"English"
         ];
     }
+
+    public function search($params) {
+        $query = MenuItemTrans::find()->orderBy(["id" => SORT_DESC]);
+
+        $query->andFilterWhere(['like', 'title', $params['search']])
+            ->andFilterWhere(['like', 'short', $params['search']])
+            ->andFilterWhere(['like', 'text', $params['search']]);
+
+        return $dataProvider;
+
+    }
+
 }

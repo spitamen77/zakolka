@@ -16,6 +16,7 @@ use yii\data\Pagination;
 use app\models\maxpirali\Menu;
 use app\models\maxpirali\MenuItem;
 use app\models\maxpirali\MenuItemTrans;
+use app\models\dilshod\MenuItemTrans as Trans;
 
 class SiteController extends Controller
 {
@@ -229,5 +230,15 @@ class SiteController extends Controller
     public function actionConfirm()
     {
         return $this->render('confirm');
+    }
+
+    public function actionSearch()
+    {
+        $new = new Trans();
+    
+        $data =$new->search(Yii::$app->request->queryParams);
+        return $this->render('search', [
+            'items' => $data,
+        ]);
     }
 }
