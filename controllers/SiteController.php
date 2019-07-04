@@ -160,7 +160,7 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post())) { // Если есть, загружаем post данные в модель через родительский метод load класса Model
             if ($user = $model->signup()) { // Регистрация
                 // if (Yii::$app->getUser()->login($user)) { // Логиним пользователя если регистрация успешна
-                    return $this->goHome(); // Возвращаем на главную страницу
+                    return $this->actionConfirm(); // Возвращаем на главную страницу
                 // }
             }
         }
@@ -224,5 +224,10 @@ class SiteController extends Controller
         $good->delete();
         Yii::$app->response->format='json';
         return ['result' => 'success'];
+    }
+
+    public function actionConfirm()
+    {
+        return $this->render('confirm');
     }
 }
