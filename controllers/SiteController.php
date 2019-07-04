@@ -68,6 +68,7 @@ class SiteController extends Controller
      */
     public function actionIndex($slug = '', $item_slug = '')
     {
+        // var_dump($item_slug); die;
         if ($slug) {
             $menu = Menu::find()->where(['slug' => $slug])->one();
             $items = MenuItem::find()->where(['menu_id'=>$menu->id])->orderBy(['id'=>SORT_DESC])->all();

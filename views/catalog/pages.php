@@ -36,20 +36,23 @@ $this->title = $menu->title;
       <div class="product-layout col-lg-4 col-md-4 col-sm-6 col-xs-12">
          <div class="product-thumb transition">
             <div class="image">
-            	<a href="https://lafrance-accessories.ru/zakolka-avtomat/zakolka-avtomat-lakres-8751gm-confetti">
+            	<a href="<?=Url::to('/?slug='.$menu->slug.'&item_slug='.$value->slug)?>">
             		<img src="<?=$value->photo?>" alt="<?=$value->translate->title?>" title="<?=$value->translate->title?>" class="img-responsive">
             	</a>
-            </div>
+            </div><br><br>
             <div class="caption">
-               <a href="https://lafrance-accessories.ru/zakolka-avtomat/zakolka-avtomat-lakres-8751gm-confetti" class="prd-name"><?=$value->translate->title?></a>        
-               <p class="sku"><strong>Артикул:</strong>8751GM-CONFETTI</p>
+               <a href="<?=Url::to('/?slug='.$menu->slug.'&item_slug='.$value->slug)?>" class="prd-name"><?=$value->translate->title?></a>        
                <div class="price-container-c">
                   <div>
-                     <span class="rozn-price-name">Розница:</span>
-                     <span class="price-new">0р.</span>
+                     <span class="rozn-price-name"><?=Lang::t('price')?>:</span>
+                     <? if($value->sale): ?>
+                     <span class="price-new"><?=$value->price * (1 - $value->sale/100)?>   &nbsp;&nbsp;&nbsp;<span class="price-old"><?=$value->price?></span></span>
+                     <? else: ?>
+                     <span class="price-new"><?=$value->price?></span>
+                     <? endif; ?>
                   </div>
                   <div>
-                     <span class="opt-price-name">Опт:</span><span class="opt-price-null">--</span>
+                     <? if($value->sale): ?><span class="action-spec test3"></span><? endif; ?>
                   </div>
                </div>
                &#65279;
@@ -88,29 +91,32 @@ $this->title = $menu->title;
             <li><a href="https://lafrance-accessories.ru/zakolka-avtomat?page=2">2</a></li>
             <li><a href="https://lafrance-accessories.ru/zakolka-avtomat?page=8">&gt;|</a></li>
          </ul> -->
-      </div>
+<!--       </div>
       <div class="col-sm-6 text-right">Показано с 1 по 30 из 211 (всего 8 страниц)</div>
-   </div>
+ -->   </div>
    <p class="row-heading as_h2" style="font-weight: 600; font-size: 17px!important; text-transform: uppercase; border-bottom: 2px solid #000;">Хит продаж</p>
    <div class="row">
       <?php foreach (MenuItem::getXit($menu->id) as $item) :?>
       <div class="product-layout col-lg-4 col-md-4 col-sm-6 col-xs-12">
          <div class="product-thumb transition">
             <div class="image">
-              <a href="https://lafrance-accessories.ru/zakolka-avtomat/zakolka-avtomat-lakres-8751gm-confetti">
+              <a href="<?=Url::to('/?slug='.$menu->slug.'&item_slug='.$item->slug)?>">
                 <img src="<?=$item->photo?>" alt="<?=$item->translate->title?>" title="<?=$item->translate->title?>" class="img-responsive">
               </a>
-            </div>
+            </div><br><br>
             <div class="caption">
-               <a href="https://lafrance-accessories.ru/zakolka-avtomat/zakolka-avtomat-lakres-8751gm-confetti" class="prd-name"><?=$item->translate->title?></a>        
-               <p class="sku"><strong>Артикул:</strong>8751GM-CONFETTI</p>
+               <a href="<?=Url::to('/?slug='.$menu->slug.'&item_slug='.$item->slug)?>" class="prd-name"><?=$item->translate->title?></a>        
                <div class="price-container-c">
                   <div>
-                     <span class="rozn-price-name">Розница:</span>
-                     <span class="price-new">0р.</span>
+                     <span class="rozn-price-name"><?=Lang::t('price')?>:</span>
+                     <? if($item->sale): ?>
+                     <span class="price-new"><?=$item->price * (1 - $item->sale/100)?>   &nbsp;&nbsp;&nbsp;<span class="price-old"><?=$item->price?></span></span>
+                     <? else: ?>
+                     <span class="price-new"><?=$item->price?></span>
+                     <? endif; ?>
                   </div>
                   <div>
-                     <span class="opt-price-name">Опт:</span><span class="opt-price-null">--</span>
+                     <? if($item->sale): ?><span class="action-spec test3"></span><? endif; ?>
                   </div>
                </div>
                &#65279;
