@@ -56,7 +56,7 @@ class ShopcartGoods extends \yii\db\ActiveRecord
         ];
     }
 
-    public static function saved($item_id)
+    public static function saved($item_id, $quantity=1)
     {
         $item = ShopcartOrders::find()->where(['auth_user'=>Yii::$app->user->identity->id])
                 ->andWhere(['access_token'=>Yii::$app->session->getId()])
@@ -65,7 +65,7 @@ class ShopcartGoods extends \yii\db\ActiveRecord
                 $good = self::find()->where(['order_id'=>$item->order_id])
                         ->andWhere(['item_id'=>$item_id])->one();
                 if (!empty($good)) {        // Agar oldin sotib olgan bo`lsa
-                    $good->count += 1;
+                    $good->count += $quantity;
                     if ($good->save()) return "success";
                     else return "error";
                 }
@@ -75,7 +75,7 @@ class ShopcartGoods extends \yii\db\ActiveRecord
                         $good = new ShopcartGoods();
                         $good->order_id = $item->order_id;
                         $good->item_id = $item_id;
-                        $good->count = 1;
+                        $good->count = $quantity;
                         $good->price = $menu_item['price'];
                         $good->sale = $menu_item['sale'];
                         if ($good->save()) return "success";

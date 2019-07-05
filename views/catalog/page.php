@@ -67,7 +67,7 @@ $this->title = $menu->title;
                               <input type="hidden" id="product_id" value="<?=$model->id?>">
                            </div>
                            <div class="col-xs-9 col-sm-8 nopads">
-                              <button type="button" id="button-cart" data-loading-text="Загрузка..." class="btn btn-primary btn-lg btn-block" ><?=Lang::t("Sotib olish")?></button>
+                              <button type="button" id="button-cart" class="btn btn-primary btn-lg btn-block" ><?=Lang::t("Sotib olish")?></button>
                               ﻿
                            </div>
                         </div>
@@ -143,12 +143,12 @@ $this->registerJs('
             });
     });
 
-    $(".button-cart").click(function(e){
-        // e.preventDefault();
+    $("#button-cart").click(function(e){
+        e.preventDefault();
         var quantity = $("#input-quantity").val();
+        console.log(quantity);
         var items = $("#product_id").val();
-        console.log(items);
-        $.get("/site/sale",{item: items, quantity:quantity},function(response){
+        $.get("/site/sale",{item:items, quantity:quantity},function(response){
             
                 if(response.result=="success"){
                     window.location.reload();

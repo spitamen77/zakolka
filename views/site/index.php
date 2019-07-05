@@ -1,59 +1,29 @@
+<link rel="stylesheet" type="text/css" href="css/style.min.css">
                      <div class="col-xs-12 mb40">
                         <!-- Start WOWSlider.com BODY section -->
                         <div id="wowslider-container1">
                            <div class="ws_images">
                               <ul>
+                                 <? foreach(\app\models\dilshod\Photo::getPhoto() as $photo): ?>
                                  <li>
-                                    <a href="/zakolki-dlya-volos"><img src="/prikh/lafrance_banner2.png" alt="Брошки. La France Accessories" title="" id="wows1_3" /></a>
-                                    <div class="prikh_overlay">Мы не утверждаем, что заколки La France совершенны, но каждый день стараемся сделать их лучше</div>
+                                    <?//='<pre>'; var_dump($photo); die; ?>
+                                    <a href="#">
+                                       <img src="<?=$photo->getRasm()[0]->src?>" alt="<?=$photo->info?>" title="" id="wows1_3" style="width: 100%"/>
+                                    </a>
+                                    <div class="prikh_overlay"><?=$photo->info?></div>
                                  </li>
-                                 </a>
+                                 <? endforeach; ?>
                               </ul>
                            </div>
                            <div class="ws_bullets">
-                              <div>
-                                 <a href="#" title=""><span><img src="data1/tooltips/_4.jpg" alt="Брошки. La France Accessories"/>3</span></a>
-                              </div>
                            </div>
                            <div class="ws_script" class="hidewsscript"></div>
                            <div class="ws_shadow"></div>
                         </div>
-                        <script type="text/javascript" src="engine1/wowslider.js"></script>
-                        <script type="text/javascript" src="engine1/script.js"></script>
                         <!-- End WOWSlider.com BODY section -->
                      </div>
-                     <p class="prikh_main__info">Мы рады приветствовать вас на сайте интернет-магазинаLaFrance! В нашем каталоге представлен огромный ассортимент яркихи невероятно красивых украшений для волос – заколок, шпилек, булавок и прочих аксессуаров, которые гармонично дополнят ваш образ и станут незаменимым элементом оригинальной прически. Мы уделяем большое внимание контролю качества продукции, с ответственностью относимся к потребностям каждого клиента, а также гарантируем максимальную оперативность доставки. Кроме того, наши цены всегда сохраняются доступными, поэтому покупка станет не только приятной, но и выгодной!</p>
                      <h1 class="h1_home">Аксессуары для волос в интернет-магазине La France Accessories</h1>
-                     <div id="banner0" class="banner row nopads">
-                        <div class="col-xs-12 col-sm-4 span3">
-                           <a href="/greben">
-                              <img src="/image/IMG_5385.jpg" alt="Гребни. La France" title="">
-                              <div class="s-desc">
-                                 <span class="like_h1">Гребни</span>
-                                 <span class="like_h2"></span>
-                              </div>
-                           </a>
-                        </div>
-                        <div class="col-xs-12 col-sm-4 span3">
-                           <a href="/zakolki-dlya-volos">
-                              <img src="/image/IMG_5397.jpg" alt="Заколки. La France" title="">
-                              <div class="s-desc">
-                                 <span class="like_h1">Заколки</span>
-                                 <span class="like_h2"></span>
-                              </div>
-                           </a>
-                        </div>
-                        <div class="col-xs-12 col-sm-4 span3">
-                           <a href="/zakolka-krab">
-                              <img src="/image/IMG_5408.jpg" alt="Крабы. La France" title="">
-                              <div class="s-desc">
-                                 <span class="like_h1">Крабы</span>
-                                 <span class="like_h2"></span>
-                              </div>
-                           </a>
-                        </div>
-                     </div>
-                     <!-- <h3 class="row-heading test2">Рекомендуемые</h3> -->
+
                      <div class="row">
                         <div class="product-layout col-lg-4 col-md-4 col-sm-6 col-xs-12">
                            <div class="product-thumb transition">

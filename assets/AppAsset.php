@@ -29,7 +29,7 @@ class AppAsset extends AssetBundle
         'css/mform.css',
         'css/owl.carousel.css',
         'css/owl.transitions.css',
-        'css/style.min.css',
+        // 'css/style.min.css',
         'css/stylesheet.min.css'
     ];
     public $js = [
@@ -37,8 +37,8 @@ class AppAsset extends AssetBundle
         // 'js/all.min.js',
         'js/analytics.js',
         // 'js/bundle_ru_RU.js',
-        'js/cart_js.js',
-        'js/common.min.js',
+        // 'js/cart_js.js',
+        // 'js/common.min.js',
         'js/exform.js',
         'js/jquery.bxslider.js',
         'js/nouislider.min.js',

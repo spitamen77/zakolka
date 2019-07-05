@@ -197,7 +197,8 @@ class SiteController extends Controller
     public function actionSale()
     {
         $item_id = $_GET['item'];
-        $good = ShopcartGoods::saved($item_id);
+        $quantity = ($_GET['quantity'])?$_GET['quantity']:1;
+        $good = ShopcartGoods::saved($item_id, $quantity);
         if ($good=="success") {
             Yii::$app->response->format='json';
             return ['result' => 'success'];

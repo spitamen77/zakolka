@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июл 03 2019 г., 14:30
+-- Время создания: Июл 05 2019 г., 07:13
 -- Версия сервера: 5.5.50
 -- Версия PHP: 5.6.23
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `zakolka2`
+-- База данных: `zakolka`
 --
 
 -- --------------------------------------------------------
@@ -50,7 +50,7 @@ INSERT INTO `in_menu` (`id`, `title`, `slug`, `template_id`, `tree`, `child`, `s
 (5, 'Bacxt2', 'baxt', 1, 4, 1, 9, 1, 1561909753),
 (6, 'Kelajak', 'kelajak', 2, 4, 3, 9, 1, 1561909758),
 (7, 'qahramon000', '5d1c32ce48902', 1, 3, 0, 9, 1, 1562129102),
-(8, 'Bezak', 'bezak', 2, 1, 0, 1, 1, 1561916847),
+(8, 'Abodok', 'bezak', 2, 1, 0, 1, 1, 1562299363),
 (9, 'Banan', 'banan', 2, 2, 0, 1, 1, 1561916864),
 (10, 'Rezinka', 'rezinka', 2, 3, 0, 1, 1, 1561916878),
 (11, 'Zajim', 'zajim', 2, 4, 0, 1, 1, 1561916905);
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `in_menu_item` (
   `user_id` int(11) NOT NULL,
   `created_date` int(11) NOT NULL,
   `updated_date` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `in_menu_item`
@@ -90,9 +90,17 @@ INSERT INTO `in_menu_item` (`id`, `menu_id`, `title`, `photo`, `short`, `text`, 
 (5, 6, 'hamma qani0000', '5c9a73804dbe1.jpg', 'Biurinchi qadam000', 'adfv sd sdf sdf dsf sdfg000', 'qani', 0, 9, 23432, 234, 1, 1553625939, 1561911208),
 (6, 6, 'dddddddddddddd', '5c9bc053553c8.jpg', 'dssssssss', 'sdvfdsvfd sdsfsd2', 'bir2d', 5, 9, NULL, NULL, 1, 1553705417, 1561911204),
 (7, 8, '2-088 title', '5d18e05e72be1.jpg', '2-088 short', '2-088 text', '2-088', 37, 9, 2000, 0, 1, 1561911349, 1562082128),
-(8, 8, '2-176 title', '5d1900b6c652c.jpg', '2-176 short', '2-176 text', '2-176', 0, 1, 2000, NULL, 1, 1561919670, 1561919691),
-(10, 9, 'Banan taqinchoq', 'uploads/item/5d1c36cc54e1c.jpg', 'babanli taqinchoqlar', '<p>Bababi bor taqinchoq</p>', 'bababi', 15, 1, 1200, 0, 1, 1562130049, 1562130124),
-(11, 9, 'Banan taqinchoq2', 'uploads/item/5d1c3717ebd71.jpg', 'Banan taqinchoq2', '<p>Banan taqinchoq2 Banan taqinchoq2</p>', 'banani katta', 5, 1, 1100, 5, 1, 1562130199, NULL);
+(8, 8, '2-176 title', '5d1900b6c652c.jpg', '2-176 short', '2-176 text', '5d1cfca59c95d', 0, 9, 2000, NULL, 1, 1561919670, 1562180773),
+(10, 9, 'Banan taqinchoq', 'uploads/item/5d1c36cc54e1c.jpg', 'babanli taqinchoqlar', '<p>Bababi bor taqinchoq</p>', '5d1ecbc843f5d', 29, 9, 1200, 0, 1, 1562130049, 1562299336),
+(11, 9, 'Banan taqinchoq2', 'uploads/item/5d1c3717ebd71.jpg', 'Banan taqinchoq2', '<p>Banan taqinchoq2 Banan taqinchoq2</p>', '5d1ecbc434c45', 62, 9, 1100, 5, 1, 1562130199, 1562299332),
+(12, 8, '2-088 title', 'uploads/item/5d1ecc977a9ca.jpg', '2-088 short', '<p>2-088 text</p>', '2-0880', 0, 1, 5000, NULL, 1, 1562299443, 1562299543),
+(13, 8, '2-176 title', 'uploads/item/5d1ecc621e505.jpg', '2-176 short', '<p>2-176 taxt</p>', '2-176', 0, 1, 2000, 20, 1, 1562299490, 1562299511),
+(14, 8, '2-300 title', 'uploads/item/5d1eccda52879.jpg', '2-300 short', '<p>2-300 text</p>', '2-300', 0, 1, 4500, NULL, 1, 1562299610, NULL),
+(15, 9, '6-012 title', 'uploads/item/5d1ecd3cdc616.jpg', '6-012 short', '<p>6-012 text</p>', '6-012', 0, 1, 1500, 10, 1, 1562299708, NULL),
+(16, 9, '6-015 title', 'uploads/item/5d1ecd7d5a2d5.jpg', '6-015 short', '<p>6-015 text</p>', '6-015', 0, 1, 2300, 5, 1, 1562299773, NULL),
+(17, 9, '6-115 title', NULL, '6-115 short', '<p>6-115 text</p>', '5d1ece33d2283', 0, 9, 3200, NULL, 1, 1562299859, 1562299955),
+(18, 9, '6-115 title', NULL, '6-115 short', '<p>6-115 text</p>', '5d1ece2c5f8d0', 0, 9, 3200, NULL, 1, 1562299868, 1562299948),
+(19, 9, '6-115 title', 'uploads/item/5d1ece20b320d.jpg', '6-115 short', '<p>6-115 text</p>', '6-11500', 0, 1, 3200, NULL, 1, 1562299875, 1562299936);
 
 -- --------------------------------------------------------
 
@@ -109,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `in_menu_item_trans` (
   `text` text NOT NULL,
   `status` int(4) NOT NULL DEFAULT '1',
   `updated_date` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `in_menu_item_trans`
@@ -133,10 +141,18 @@ INSERT INTO `in_menu_item_trans` (`id`, `item_id`, `lang`, `title`, `short`, `te
 (28, 5, 'ru-RU', 'Привет 000', 'Biurinchi qadam0000', '0000000', 9, 1561911208),
 (29, 5, 'en-US', 'asdfds0000', 'asdfdsa0000', '00000000', 9, 1561911208),
 (30, 7, 'uz-UZ', '2-088 title', '2-088 short', '2-088 text', 9, 1562082128),
-(31, 8, 'uz-UZ', '2-176 title', '2-176 short', '2-176 text', 1, 1561919691),
+(31, 8, 'uz-UZ', '2-176 title', '2-176 short', '2-176 text', 9, 1562180773),
 (32, 9, 'uz-UZ', '2-088 title', '2-088 short', '<p>fdbdgngfn</p>', 1, NULL),
-(33, 10, 'uz-UZ', 'Banan taqinchoq', 'babanli taqinchoqlar', '<p>Bababi bor taqinchoq</p>', 1, 1562130124),
-(34, 11, 'uz-UZ', 'Banan taqinchoq2', 'Banan taqinchoq2', '<p>Banan taqinchoq2 Banan taqinchoq2</p>', 1, NULL);
+(33, 10, 'uz-UZ', 'Banan taqinchoq', 'babanli taqinchoqlar', '<p>Bababi bor taqinchoq</p>', 9, 1562299336),
+(34, 11, 'uz-UZ', 'Banan taqinchoq2', 'Banan taqinchoq2', '<p>Banan taqinchoq2 Banan taqinchoq2</p>', 9, 1562299332),
+(35, 12, 'uz-UZ', '2-088 title', '2-088 short', '<p>2-088 text</p>', 1, 1562299543),
+(36, 13, 'uz-UZ', '2-176 title', '2-176 short', '<p>2-176 taxt</p>', 1, 1562299511),
+(37, 14, 'uz-UZ', '2-300 title', '2-300 short', '<p>2-300 text</p>', 1, NULL),
+(38, 15, 'uz-UZ', '6-012 title', '6-012 short', '<p>6-012 text</p>', 1, NULL),
+(39, 16, 'uz-UZ', '6-015 title', '6-015 short', '<p>6-015 text</p>', 1, NULL),
+(40, 17, 'uz-UZ', '6-115 title', '6-115 short', '<p>6-115 text</p>', 9, 1562299955),
+(41, 18, 'uz-UZ', '6-115 title', '6-115 short', '<p>6-115 text</p>', 9, 1562299948),
+(42, 19, 'uz-UZ', '6-115 title', '6-115 short', '<p>6-115 text</p>', 1, 1562299936);
 
 -- --------------------------------------------------------
 
@@ -170,9 +186,9 @@ INSERT INTO `in_menu_trans` (`id`, `menu_id`, `lang`, `title`, `status`, `update
 (10, 7, 'ru-RU', 'i ti toje', 9, 1562129102),
 (11, 1, 'ru-RU', 'Для инвестор', 9, 1561909743),
 (12, 1, 'en-US', 'For Invester', 9, 1561909743),
-(13, 8, 'uz-UZ', 'Bezak', 1, 1561916847),
-(14, 8, 'ru-RU', 'Ободок', 1, 1561916847),
-(15, 8, 'en-US', 'Rim', 1, 1561916847),
+(13, 8, 'uz-UZ', 'Abodok', 1, 1562299364),
+(14, 8, 'ru-RU', 'Ободок', 1, 1562299364),
+(15, 8, 'en-US', 'Rim', 1, 1562299364),
 (16, 9, 'uz-UZ', 'Banan', 1, 1561916864),
 (17, 9, 'ru-RU', 'Банан', 1, 1561916864),
 (18, 9, 'en-US', 'Banana', 1, 1561916864),
@@ -195,14 +211,15 @@ CREATE TABLE IF NOT EXISTS `in_photo` (
   `image` varchar(255) NOT NULL,
   `status` int(11) NOT NULL,
   `info` varchar(128) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `in_photo`
 --
 
 INSERT INTO `in_photo` (`id`, `slug`, `image`, `status`, `info`) VALUES
-(1, 'salom11', '', 1, 'hammaa sadsa');
+(1, 'salom11', '', 1, 'hammaa sadsa'),
+(2, 'sssss', '', 1, 'ddddd');
 
 -- --------------------------------------------------------
 
@@ -214,7 +231,15 @@ CREATE TABLE IF NOT EXISTS `in_rasm` (
   `id` int(11) NOT NULL,
   `photo_id` int(11) NOT NULL,
   `src` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `in_rasm`
+--
+
+INSERT INTO `in_rasm` (`id`, `photo_id`, `src`) VALUES
+(1, 1, 'uploads/gallery/5d1e5cb3a2448.jpg'),
+(2, 2, 'uploads/gallery/5d1e5cfd258fb.jpg');
 
 -- --------------------------------------------------------
 
@@ -229,7 +254,7 @@ CREATE TABLE IF NOT EXISTS `in_shopcart_goods` (
   `count` int(11) DEFAULT NULL,
   `price` float DEFAULT '0',
   `sale` int(11) DEFAULT '0'
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `in_shopcart_goods`
@@ -240,7 +265,9 @@ INSERT INTO `in_shopcart_goods` (`good_id`, `order_id`, `item_id`, `count`, `pri
 (2, 2, 14, 1, 900000, 0),
 (3, 3, 11, 1, 2500000, 0),
 (4, 4, 10, 2, 1200, 0),
-(5, 4, 11, 1, 1100, 5);
+(5, 4, 11, 1, 1100, 5),
+(6, 5, 11, 1, 1100, 5),
+(13, 6, 10, 3, 1200, 0);
 
 -- --------------------------------------------------------
 
@@ -264,7 +291,7 @@ CREATE TABLE IF NOT EXISTS `in_shopcart_orders` (
   `new` tinyint(1) DEFAULT '0',
   `status` tinyint(1) DEFAULT '0',
   `type` int(11) DEFAULT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `in_shopcart_orders`
@@ -274,7 +301,9 @@ INSERT INTO `in_shopcart_orders` (`order_id`, `auth_user`, `name`, `address`, `p
 (1, 6, '', 'Тошкент', '989897897', '', 'ftytfy', '', 'Bkzbeq5G7rHrMu3w3Hu6siTEbFOVIUX-', '127.0.0.1', NULL, 1559491882, 0, 1, NULL),
 (2, 6, '', '', '', '', '', '', 'hLlP91fHcI7Hyarks3htUZM9ayhXhpdX', '127.0.0.1', NULL, 1559538028, 0, 1, NULL),
 (3, 6, '', '', '', '', '', '', 'gIOqQ7w7Yr22vQENYLLIMDKGgBD-E_Y7', '127.0.0.1', NULL, 1559628282, 0, 1, NULL),
-(4, 1, NULL, NULL, NULL, '', '', '', 's1gvt8oqnb399d8s4q21p51da7', '127.0.0.1', NULL, 1562140921, 0, 0, NULL);
+(4, 1, NULL, NULL, NULL, '', '', '', 's1gvt8oqnb399d8s4q21p51da7', '127.0.0.1', NULL, 1562140921, 0, 0, NULL),
+(5, 1, NULL, NULL, NULL, '', '', '', 'unl6dh5ril6snm6a5ukb6av5g4', '127.0.0.1', NULL, 1562180939, 0, 0, NULL),
+(6, 1, NULL, NULL, NULL, '', '', '', '75lnvif87l9kddhh2mr0mliub3', '127.0.0.1', NULL, 1562265290, 0, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -482,12 +511,12 @@ ALTER TABLE `in_menu`
 -- AUTO_INCREMENT для таблицы `in_menu_item`
 --
 ALTER TABLE `in_menu_item`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT для таблицы `in_menu_item_trans`
 --
 ALTER TABLE `in_menu_item_trans`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=43;
 --
 -- AUTO_INCREMENT для таблицы `in_menu_trans`
 --
@@ -497,22 +526,22 @@ ALTER TABLE `in_menu_trans`
 -- AUTO_INCREMENT для таблицы `in_photo`
 --
 ALTER TABLE `in_photo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT для таблицы `in_rasm`
 --
 ALTER TABLE `in_rasm`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT для таблицы `in_shopcart_goods`
 --
 ALTER TABLE `in_shopcart_goods`
-  MODIFY `good_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `good_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT для таблицы `in_shopcart_orders`
 --
 ALTER TABLE `in_shopcart_orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT для таблицы `in_text_translate`
 --
