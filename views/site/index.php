@@ -64,7 +64,7 @@
                         </div>
                         <div class="product-layout col-lg-4 col-md-4 col-sm-6 col-xs-12">
                            <div class="product-thumb transition">
-                              <div class="image"><a href="https://lafrance-accessories.ru/lodochka-01601-136-zakolka-krab-malyy-la-france"><img src="image/cache/catalog/krab/01601_136 220-550р-200x200.JPG" alt="Заколка-краб малый ЛОДОЧКА" title="Заколка-краб малый ЛОДОЧКА" class="img-responsive" /></a></div>
+                              <div class="image"><a href="https://lafrance-accessories.ru/lodochka-01601-136-zakolka-krab-malyy-la-france"><img src="/image/cache/catalog/krab/01601_136 220-550р-200x200.JPG" alt="Заколка-краб малый ЛОДОЧКА" title="Заколка-краб малый ЛОДОЧКА" class="img-responsive" /></a></div>
                               <div class="caption">
                                  <a href="https://lafrance-accessories.ru/lodochka-01601-136-zakolka-krab-malyy-la-france" class="prd-name">Заколка-краб малый ЛОДОЧКА</a>        
                                  <p class="sku"><strong>Артикул:</strong>01601_136</p>
