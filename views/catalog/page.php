@@ -129,19 +129,6 @@ $this->title = $menu->title;
 
 <?php
 $this->registerJs('
-    $(".cart-button-krl").click(function(e){
-        // e.preventDefault();
-        var items = $(this).attr("data-id");
-        console.log(items);
-        $.get("/site/sale",{item: items},function(response){
-            
-                if(response.result=="success"){
-                    window.location.reload();
-                    
-                    console.log(response.result);
-                } else console.log(response.result);
-            });
-    });
 
     $("#button-cart").click(function(e){
         e.preventDefault();

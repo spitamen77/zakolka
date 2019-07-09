@@ -153,4 +153,11 @@ class MenuItem extends \yii\db\ActiveRecord
     {
         return $this->hasMany(MenuItemTrans::className(), ['item_id' => 'id']);
     }
+
+    public function getTranslate()
+    {
+        $trans = $this->hasOne(MenuItemTrans::className(), ['item_id' => 'id'])->where(['lang'=>Yii::$app->language]);
+        if (!empty($trans)) return $trans;
+        return $this->hasOne(MenuItemTrans::className(), ['item_id' => 'id'])->where(['lang'=>"uz-UZ"]);
+    }
 }
