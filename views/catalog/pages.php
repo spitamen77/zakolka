@@ -55,7 +55,11 @@ $this->title = $menu->title;
                 </div>
                 <div>
                   <span class="opt-price-name">Опт:</span><span class="opt-price-null">--</span>
-                </div>                  
+                </div> 
+                                                    <div>
+                                       <? if($item->sale): ?><span class="action-spec test3"></span><? endif; ?>
+                                    </div>
+                 
               </div>
                 <button type="button" class="cart-button cart-button-krl" data-id="<?=$item->id?>" enabled="enabled"><?=Lang::t("Sotib olish")?></button>
                 <!-- Button fastorder -->
@@ -106,7 +110,11 @@ $this->title = $menu->title;
                 </div>
                 <div>
                   <span class="opt-price-name">Опт:</span><span class="opt-price-null">--</span>
-                </div>                  
+                </div>
+                                                    <div>
+                                       <? if($item->sale): ?><span class="action-spec test3"></span><? endif; ?>
+                                    </div>
+
               </div>
                 <button type="button" class="cart-button cart-button-krl" data-id="<?=$item->id?>" enabled="enabled"><?=Lang::t("Sotib olish")?></button>
                 <!-- Button fastorder -->
