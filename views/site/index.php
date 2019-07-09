@@ -39,46 +39,44 @@ $menu = Menu::menus();
    <h3><?=$m['title']?></h3>
                      <div class="row">
    <? //echo "<pre>"; var_dump($mod); die; ?>
-                        <?php foreach($items as $value): ?>
-                        <div class="product-layout col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                           <div class="product-thumb transition">
-                              
-                              <div class="image">
-                                 <a href="<?=Url::to('/?slug='.$menu->slug.'&item_slug='.$value->slug)?>">
-                                    <img src="<?=$value->photo?>" alt="<?=$value->translate->title?>" title="<?=$value->translate->title?>" class="img-responsive">
-                                 </a>
-                              </div><br><br>
-
-                              <div class="caption">
-                                 <a href="<?=Url::to('/?slug='.$menu->slug.'&item_slug='.$value->slug)?>" class="prd-name"><?=$value->translate->title?></a>        
-                                 <div class="price-container-c">
-                                    <div>
-                                       <span class="rozn-price-name"><?=Lang::t('price')?>:</span>
-                                       <? if($value->sale): ?>
-                                       <span class="price-new"><?=$value->price * (1 - $value->sale/100)?>   &nbsp;&nbsp;&nbsp;<span class="price-old"><?=$value->price?></span></span>
-                                       <? else: ?>
-                                       <span class="price-new"><?=$value->price?></span>
-                                       <? endif; ?>
-                                    </div>
-                                                    <div>
+                        <?php foreach($items as $item): ?>
+      <div class="product-layout col-lg-4 col-md-4 col-sm-6 col-xs-12">
+    <div class="product-thumb transition">
+      <div class="image">
+        <a href="<?=Url::to('/?slug='.$menu->slug.'&item_slug='.$item->slug)?>">
+        <img src="<?=$item->photo?>" alt="<?=$item->translate->title?>" title="<?=$item->translate->title?>" class="img-responsive"></a>
+      </div><br><br>
+      <div class="caption">
+        <a href="<?=Url::to('/?slug='.$menu->slug.'&item_slug='.$item->slug)?>" class="prd-name"><?=$item->translate->title?></a>        
+        <!-- <p class="sku"><strong>Артикул:</strong>01371D-NRBD</p> -->
+              <div class="price-container-c">
+                  <div>
+                  <span class="rozn-price-name"><?=Lang::t('price')?>:</span>
+                  <? if($item->sale): ?>
+                  <span class="price-new"><?=$item->price * (1 - $item->sale/100)?>   &nbsp;&nbsp;&nbsp;
+                    <span class="price-old"><?=$item->price?></span></span>
+                     <? else: ?>
+                     <span class="price-new"><?=$item->price?></span>
+                     <? endif; ?>
+                                  
+                </div>
+                <div>
                   <span class="opt-price-name">Опт:</span><span class="opt-price-null">--</span>
-                </div>                  
-
-                                    <div>
-                                       <? if($value->sale): ?><span class="action-spec test3"></span><? endif; ?>
+                </div> 
+                                                    <div>
+                                       <? if($item->sale): ?><span class="action-spec test3"></span><? endif; ?>
                                     </div>
-
-                                 </div>
-                                 <button type="button" class="cart-button cart-button-krl" data-id="<?=$value->id?>" enabled="enabled"><?=Lang::t("Sotib olish")?></button>
-                                                 <!-- Button fastorder -->
+                 
+              </div>
+                <button type="button" class="cart-button cart-button-krl" data-id="<?=$item->id?>" enabled="enabled"><?=Lang::t("Sotib olish")?></button>
+                <!-- Button fastorder -->
               <div class="button-gruop">
                 <!-- Button fastorder -->
               <div id="fastorder-form-container5204"></div>
              </div><!-- END :  button fastorder -->
-
-                              </div>
-                           </div>
-                        </div>
+          </div>
+    </div>
+  </div>
                       <? endforeach; ?>
                      </div>
 

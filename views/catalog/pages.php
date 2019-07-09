@@ -38,7 +38,7 @@ $this->title = $menu->title;
       <div class="image">
         <a href="<?=Url::to('/?slug='.$menu->slug.'&item_slug='.$item->slug)?>">
         <img src="<?=$item->photo?>" alt="<?=$item->translate->title?>" title="<?=$item->translate->title?>" class="img-responsive"></a>
-      </div>
+      </div><br><br>
       <div class="caption">
         <a href="<?=Url::to('/?slug='.$menu->slug.'&item_slug='.$item->slug)?>" class="prd-name"><?=$item->translate->title?></a>        
         <!-- <p class="sku"><strong>Артикул:</strong>01371D-NRBD</p> -->
