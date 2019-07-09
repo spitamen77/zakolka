@@ -44,7 +44,8 @@ use app\models\Lang;
  <div class="module-categories">
     <ul>
     	<?php PrintMenuLeft(Menu::menus()); ?>
-    </ul>
+    </ul> 
+    <div id="eventCalendar"></div>
  </div>
 <?php function PrintMenuLeft($menu){ ?>
     <? foreach ($menu as $value) { ?>
@@ -56,5 +57,16 @@ use app\models\Lang;
             <?} ?>
         </li>
         <? }  
-    } 
+    }
+
+    
 ?>
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $('#eventCalendar').eventCalendar({
+
+        });
+    }
+);
+</script>

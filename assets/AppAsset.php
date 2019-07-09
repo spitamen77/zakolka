@@ -30,7 +30,9 @@ class AppAsset extends AssetBundle
         'css/owl.carousel.css',
         'css/owl.transitions.css',
         // 'css/style.min.css',
-        'css/stylesheet.min.css'
+        'css/stylesheet.min.css',
+        'css/eventCalendar.css',
+        'css/eventCalendar_theme_responsive.css',
     ];
     public $js = [
         'js/addthis_widget.js',
@@ -44,7 +46,9 @@ class AppAsset extends AssetBundle
         'js/nouislider.min.js',
         'js/ocfilter.js',
         'js/owl.carousel.min.js',
-        'js/watch.js'
+        'js/watch.js',
+        'js/moment.js',
+        'js/jquery.eventCalendar.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
