@@ -16,21 +16,21 @@ $(document).ready(function(){
       var quantity_n = 0;
       
       //console.log('clicked');
-      setTimeout(function(){
-        $.post( "/cart", function( data ) {
-           //console.log(data);
-           var quantity = $(data).find("input[name^='quantity']");
-           var total = $(data).find('.text-right:last').text().replace(/[^0-9]/gi, '');
-           $(quantity).each(function(){
-              //console.log('here',$(this).val());
-              quantity_n += parseInt($(this).val());
-           });
-           //console.log('quant is ',quantity);
-           //console.log('quant_n is ',quantity_n);
-           //console.log('total is ',total);
-           $('#cart-total').empty().append(quantity_n+' товаров на сумму '+total+'р.');
-        });
-      }, 100);
+      // setTimeout(function(){
+      //   $.post( "/cart", function( data ) {
+      //      //console.log(data);
+      //      var quantity = $(data).find("input[name^='quantity']");
+      //      var total = $(data).find('.text-right:last').text().replace(/[^0-9]/gi, '');
+      //      $(quantity).each(function(){
+      //         //console.log('here',$(this).val());
+      //         quantity_n += parseInt($(this).val());
+      //      });
+      //      //console.log('quant is ',quantity);
+      //      //console.log('quant_n is ',quantity_n);
+      //      //console.log('total is ',total);
+      //      $('#cart-total').empty().append(quantity_n+' товаров на сумму '+total+'р.');
+      //   });
+      // }, 100);
       
       var cart = $('.fa.fa-chevron-circle-down');
       var imgtodrag = $(this).parent(".caption").prev().find('img');
