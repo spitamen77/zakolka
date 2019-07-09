@@ -131,12 +131,8 @@ $this->registerJs('
         $.get("/site/sale",{item: items},function(response){
             
                 if(response.result=="success"){
-
-                     window.location.reload();
-
-
-                    
-                    console.log(response.result);
+                     // window.location.reload();
+                    //console.log(response.result);
                 } else console.log(response.result);
             });
     });
