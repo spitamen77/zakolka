@@ -136,8 +136,11 @@ $goods = ShopcartOrders::goods();
                     <div class="col-xs-12 col-sm-8 nopads">
                         <div id="search">
                             <div class="inner">
-                                <button type="button" class="" id="button-search"><i class="fa fa-search"></i></button>
-                                <input type="text" name="search" value="" placeholder="<?=Lang::t('search')?>" id="search-field"/>
+                                <form action="site/search">
+                                    <button type="button" class="" id="button-search"><i class="fa fa-search"></i></button>
+                                    <input type="text" name="search" value="" placeholder="<?=Lang::t('search')?>" id="search-field"/>
+                                    
+                                </form>
                             </div>
                         </div>
                     </div>
