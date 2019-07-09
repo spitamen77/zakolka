@@ -33,9 +33,12 @@ use yii\widgets\LinkPager;
                 </div>
                 <div>
                   <span class="opt-price-name">Опт:</span><span class="opt-price-null">--</span>
-                </div>                  
+                </div>        
+                <div>
+                   <? if($item->item->sale): ?><span class="action-spec test3"></span><? endif; ?>
+                </div>          
               </div>
-                <button type="button" class="cart-button cart-button-krl" data-id="<?=$item->id?>" enabled="enabled"><?=Lang::t("Sotib olish")?></button>
+                <button type="button" class="cart-button cart-button-krl" data-id="<?=$item->item->id?>" enabled="enabled"><?=Lang::t("Sotib olish")?></button>
                 <!-- Button fastorder -->
               <div class="button-gruop">
                 <!-- Button fastorder -->
