@@ -16,7 +16,7 @@ use app\models\Lang;
 <?php if ($model->isNewRecord) : ?>
     <?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
 <?php endif;?>
-    <?= $form->field($model, 'text')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'text')->textArea(['maxlength' => true]) ?>
 <?php if (!$model->isNewRecord) : ?>
     <?= $form->field($model, 'status')->dropDownList([
         '1' => Lang::t('Aktiv'),

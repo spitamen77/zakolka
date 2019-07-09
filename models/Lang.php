@@ -32,7 +32,7 @@ class Lang extends \yii\db\ActiveRecord
         return [
             [['lang', 'text'], 'required'],
             [['status', 'updated_date'], 'integer'],
-            [['lang', 'slug', 'text'], 'string', 'max' => 128],
+            [['lang', 'slug', 'text'], 'string', 'max' => 2048],
         ];
     }
 

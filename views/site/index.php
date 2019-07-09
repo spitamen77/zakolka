@@ -42,11 +42,13 @@ $menu = Menu::menus();
                         <?php foreach($items as $value): ?>
                         <div class="product-layout col-lg-4 col-md-4 col-sm-6 col-xs-12">
                            <div class="product-thumb transition">
+                              
                               <div class="image">
                                  <a href="<?=Url::to('/?slug='.$menu->slug.'&item_slug='.$value->slug)?>">
                                     <img src="<?=$value->photo?>" alt="<?=$value->translate->title?>" title="<?=$value->translate->title?>" class="img-responsive">
                                  </a>
                               </div><br><br>
+
                               <div class="caption">
                                  <a href="<?=Url::to('/?slug='.$menu->slug.'&item_slug='.$value->slug)?>" class="prd-name"><?=$value->translate->title?></a>        
                                  <div class="price-container-c">
@@ -83,21 +85,3 @@ $menu = Menu::menus();
 <? endforeach; ?>
 
 
-<?php
-$this->registerJs('
-    $(".cart-button-krl").click(function(e){
-        // e.preventDefault();
-        var items = $(this).attr("data-id");
-        console.log(items);
-        $.get("/site/sale",{item: items},function(response){
-            
-                if(response.result=="success"){
-                    // window.location.reload();
-                    
-                    console.log(response.result);
-                } else console.log(response.result);
-            });
-    });
-');
-
-?>
