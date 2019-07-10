@@ -16,7 +16,7 @@ use yii\data\Pagination;
 use app\models\maxpirali\Menu;
 use app\models\maxpirali\MenuItem;
 use app\models\maxpirali\MenuItemTrans;
-use app\models\dilshod\MenuItemTrans as Trans;
+use app\models\dilshod\MenuItemTransSearch as Trans;
 
 class SiteController extends Controller
 {
@@ -235,11 +235,16 @@ class SiteController extends Controller
 
     public function actionSearch()
     {
-        $new = new Trans();
-    
-        $data =$new->search(Yii::$app->request->queryParams);
+        $new = Trans::find()->where(['status'=>1])
+        ->andWhere(['like', 'title', Yii::$app->request->queryParams['search']])
+        ->andWhere(['like', 'short', Yii::$app->request->queryParams['search']])
+        ->andWhere(['like', 'text', Yii::$app->request->queryParams['search']])
+        ->orderBy(["id" => SORT_DESC])
+        ->all();
+    // var_dump(Yii::$app->request->queryParams['search']);exit;
+        // $data =$new->search(Yii::$app->request->queryParams);
         return $this->render('search', [
-            'items' => $data,
+            'model' => $new,
         ]);
     }
 }

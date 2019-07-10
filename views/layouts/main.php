@@ -32,7 +32,7 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title)?></title>
     <?php $this->head() ?>
 </head>
-<body class="common-home">
+<body style="background: white !important;" class="common-home">
 <?php $this->beginBody() ?>
 
     <?=Yii::$app->controller->renderPartial("//layouts/header")?>

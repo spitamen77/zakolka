@@ -8,7 +8,23 @@ $this->title = Lang::t('Shopping cart');
 
 
 ?>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+}
 
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
 
 <form action="checkout" method="post">
     <section class="ptb-70">
@@ -23,6 +39,7 @@ $this->title = Lang::t('Shopping cart');
                                     <th class="left-text" colspan="2"><?= Lang::t('Product Name') ?></th>
                                     <th class="width-150 center"><?= Lang::t('Price') ?></th>
                                     <th class="width-10"><?= Lang::t('Delete') ?></th>
+                                    <th class="width-10"><?= Lang::t('much') ?></th>
 
                                 </tr>
                                 <?php if ($items->goods) :?>
@@ -33,7 +50,13 @@ $this->title = Lang::t('Shopping cart');
                                     <td class="center"><h3><?= $item->item->price ?></h3> UZS</td>
 
                                     <td class="width-10 center"><a class="remove-item remove" href="#" data-id="<?=$item->good_id?>" data-value="<?= $item->price ?>" title="<?= Lang::t('Remove Item From Cart') ?>">
-                                            <i class="fa fa-times-circle"></i></a></td>
+                                           <button type="button" data-id="169" title="Remove" class="btn btn-danger delete"><i class="fa fa-times-circle"></i></button></a></td>
+                                            <td >
+                                                 <div style="width: 100px" >
+                                                  <input type="number" name="quantity" value="1" id="input-quantity" min="1" class="form-control">                  
+                                                  <input type="hidden" id="product_id" value="<?=$model->id?>">
+                                                 </div>
+                                            </td>
                                 </tr>
                                 <?php endforeach; ?>
                             <?php endif;?>
