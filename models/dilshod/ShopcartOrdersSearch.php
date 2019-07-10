@@ -46,6 +46,11 @@ class ShopcartOrdersSearch extends ShopcartOrders
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [
+                 'forcePageParam' => false,
+                 'pageSizeParam' => false,
+                'pageSize' => 10
+            ]
         ]);
 
         $this->load($params);
