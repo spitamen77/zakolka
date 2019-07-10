@@ -46,7 +46,7 @@ class AppAsset extends AssetBundle
         'js/nouislider.min.js',
         'js/ocfilter.js',
         'js/owl.carousel.min.js',
-        'js/watch.js',
+        // 'js/watch.js',
 
         // men ulaganlar!!!!
         'js/moment.js',
