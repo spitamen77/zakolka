@@ -33,23 +33,25 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="col-md-10">
                     <table id="w0" class="table table-striped table-bordered detail-view">
         <tbody>
-            <tr><th>Order ID</th><td>8</td>
-                <th>Name</th><td><span class="not-set">(qiymatlanmagan)</span></td>
+            <tr><th>Order ID</th><td><?=$model->order_id?></td>
+                <th>Name</th><td><span class="not-set"><?=$model->name?></span></td>
             </tr>
 
-<tr><th>Address</th><td><span class="not-set">(qiymatlanmagan)</span></td>
-<th>Phone</th><td><span class="not-set">(qiymatlanmagan)</span></td>
+<tr><th>Address</th><td><span class="not-set"><?=$model->address?></span></td>
+<th>Phone</th><td><span class="not-set"><?=$model->phone?></span></td>
 </tr>
 
-<tr><th>Email</th><td><a href="mailto:"></a></td>
-<th>Comment</th><td></td>
+<tr><th>Email</th><td><a href="mailto:<?=$model->email?>"><?=$model->email?></a></td>
+<th>Comment</th><td><?=$model->comment?></td>
 </tr>
 
-<tr><th>Ip</th><td>127.0.0.1</td>
-<th>Time</th><td>Jul 10, 2019 7:49:04 PM</td>
+<tr><th>Ip</th><td><?=$model->ip?></td>
+<th>Vaqti</th><td><?=date("d-m-Y,  H:s",$model->time) ?></td>
 </tr>
 
-<tr><th>Status</th><td>Tanlangan</td></tr>
+<tr><th>Status</th><td><?=$model->getStatus()[$model->status]?></td>
+<th>Umumiy summa</th><td><b><?=$model->cost?></b></td>
+</tr>
 
 </tbody>
 </table>
@@ -58,12 +60,20 @@ $this->params['breadcrumbs'][] = $this->title;
             
         </div>
 
-<p>aslkjdnf ksldj nfgsldkjfg n</p>
+<p>Maxsulotlar ro`yhati</p>
 <div class="container">
             <div class="row">
                 <div class="col-md-10">        
     <table id="w0" class="table table-striped table-bordered detail-view">
         <tbody>
+            <tr>
+                <th>Nomi:</th>
+                <th>Narxi</th>
+                <th>Chegirma</th>
+                <th>Soni</th>
+                <th>Jami summa</th>
+               
+            </tr>
             <?php 
                 foreach ($model->goods as $key => $item) : ?>
             <tr>
@@ -72,7 +82,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td><?= $item->item->sale ?></td>
                 <td><?= $item->count ?></td>
                 <td><?= $item->cost ?></td>
-                <td>Tanlangan</td></tr>
+               
             </tr>
         <?php endforeach; ?>
 
