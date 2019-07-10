@@ -1,11 +1,12 @@
 <?php
 
 use yii\helpers\Html;
+use app\models\Lang;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\ShopcartOrders */
 
-$this->title = 'Create Shopcart Orders';
+$this->title = Lang::t('Create Shopcart Orders');
 $this->params['breadcrumbs'][] = ['label' => 'Shopcart Orders', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

@@ -134,7 +134,7 @@ class ShopcartOrders extends \yii\db\ActiveRecord
     public function getStatus()
     {
         return [
-        '0' => Lang::t('Maxsulot tanlangan'),
+        '0' => Lang::t('Tanlangan'),
         '1' => Lang::t('Maxsulot to`ldirilgan'),
         '2' => Lang::t('Maxsulot yetkazilgan'),
         // '1' => Lang::t('Admin'),

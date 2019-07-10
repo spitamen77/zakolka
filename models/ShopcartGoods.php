@@ -107,4 +107,10 @@ class ShopcartGoods extends \yii\db\ActiveRecord
     {
         return $this->hasOne(MenuItem::className(), ['id' => 'item_id']);
     }
+
+    public function getCost()
+    {
+        return $cost = $this->count * round($this->price * (1 - $this->sale / 100));
+       
+    }
 }
