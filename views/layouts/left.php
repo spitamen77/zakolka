@@ -45,6 +45,9 @@ use app\models\Lang;
     <ul>
     	<?php PrintMenuLeft(Menu::menus()); ?>
     </ul>
+    <ul>
+ jhgkljyhgjhg
+    </ul>
  </div>
 <?php function PrintMenuLeft($menu){ ?>
     <? foreach ($menu as $value) { ?>
