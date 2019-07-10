@@ -3,10 +3,11 @@
 
 use app\models\ShopcartOrders;
 use app\models\Lang;
+use yii\helpers\Url;
 
 $this->title = Lang::t('Shopping cart');
 
-
+// echo "<pre>"; var_dump($items->goods[0]->item->template->id); die;
 ?>
 <style>
 table {
@@ -35,28 +36,44 @@ tr:nth-child(even) {
                         <div class="table-responsive">
                             <table class="table-style2">
                                 <tbody>
-                                <tr>
-                                    <th class="left-text" colspan="2"><?= Lang::t('Product Name') ?></th>
-                                    <th class="width-150 center"><?= Lang::t('Price') ?></th>
-                                    <th class="width-10"><?= Lang::t('Delete') ?></th>
+                                <tr class="phone-sp text-center">
+                                    <th colspan="2"><?= Lang::t('Product Name') ?></th>
+                                    <th class="center"><?= Lang::t('Price') ?></th>
+                                    <th class="center"><?= Lang::t('Summ') ?></th>
                                     <th class="width-10"><?= Lang::t('much') ?></th>
+                                    <th class="width-10"><?= Lang::t('Delete') ?></th>
 
                                 </tr>
                                 <?php if ($items->goods) :?>
                                 <?php foreach ($items->goods as $item) : ?>
-                                <tr>
-                                    <td class="width-150 center"><a href="#" src="<?= $item->item->photo ?>"></a></td>
-                                    <td><a href="#">&nbsp;<h3><?= $item->item->title ?></h3></a></td>
-                                    <td class="center"><h3><?= $item->item->price ?></h3> UZS</td>
+                                <tr class="phone-sp">
+                                    <td>
+                                        <a href="<?=Url::to('/?slug='.$item->item->template->slug.'&item_slug='.$item->item->slug)?>">
+                                            <img src="<?= $item->item->photo ?>" style="width: 150px">
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="<?=Url::to('/?slug='.$item->item->template->slug.'&item_slug='.$item->item->slug)?>">
+                                            <h3 class="product_title"><?= $item->item->title?>&nbsp;<span>(<?=$item->item->template->title?>)</span></h3>
+                                        </a>
+                                    </td>
+                                    <td class="text-center">
+                                      <? if($item->item->sale): ?>
+                                      <span class="price-new"><?=$item->item->price * (1 - $item->item->sale/100)?>   &nbsp;&nbsp;&nbsp;</span>
+                                        <span class="price-old"><?=$item->item->price?></span>
+                                         <? else: ?>
+                                         <span class="price-new"><?=$item->item->price?></span>
+                                         <? endif; ?>
+                                    </td>
+                                    <td>
+                                        <?=$item->price * (1 - $item->sale/100) * $item->count?>
+                                    </td>
 
-                                    <td class="width-10 center"><a class="remove-item remove" href="#" data-id="<?=$item->good_id?>" data-value="<?= $item->price ?>" title="<?= Lang::t('Remove Item From Cart') ?>">
-                                           <button type="button" data-id="169" title="Remove" class="btn btn-danger delete"><i class="fa fa-times-circle"></i></button></a></td>
                                             <td >
-                                                 <div style="width: 100px" >
-                                                  <input type="number" name="quantity" value="1" id="input-quantity" min="1" class="form-control">                  
-                                                  <input type="hidden" id="product_id" value="<?=$model->id?>">
-                                                 </div>
+                                                  <input type="number" name="quantity" data-id="<?=$item->item->id?>" min="1" class="input-quantity form-control" value="<?=$item->count?>">
                                             </td>
+                                    <td class="text-center"><a class="remove-item remove" href="#" data-id="<?=$item->good_id?>" data-value="<?= $item->price ?>" title="<?= Lang::t('Remove Item From Cart') ?>">
+                                           <button type="button" data-id="169" title="Remove" class="btn btn-danger delete"><i class="fa fa-times-circle"></i></button></a></td>
                                 </tr>
                                 <?php endforeach; ?>
                             <?php endif;?>
@@ -86,6 +103,25 @@ tr:nth-child(even) {
 <?php
 
 $this->registerJs('
+
+    $(".input-quantity").focusout(function(e){
+        e.preventDefault();
+        var quantity = $(this).val();
+        var items = $(this).data("id");
+        console.log(items);
+        $.get("/site/sale",{item:items, quantity:quantity},function(response){
+            
+                if(response.result=="success"){
+                    window.location.reload();
+                    
+                    console.log(response.result);
+                } else console.log(response.result);
+            });
+    });
+
+
+
+
     $(".remove").click(function(e){
         e.preventDefault();
         var data = $(this).attr("data-id");
@@ -105,3 +141,4 @@ $this->registerJs('
 ');
 
 ?>
+
