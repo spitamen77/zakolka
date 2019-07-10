@@ -38,7 +38,7 @@ class AppAsset extends AssetBundle
         'js/analytics.js',
         // 'js/bundle_ru_RU.js',
         'js/cart_js.js',
-        // 'js/common.min.js',
+        'js/common.min.js',
         'js/exform.js',
         'js/jquery.bxslider.js',
         'js/nouislider.min.js',
