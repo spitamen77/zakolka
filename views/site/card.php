@@ -52,7 +52,7 @@ tr:nth-child(even) {
                                     <td class="width-10 center"><a class="remove-item remove" href="#" data-id="<?=$item->good_id?>" data-value="<?= $item->price ?>" title="<?= Lang::t('Remove Item From Cart') ?>">
                                            <button type="button" data-id="169" title="Remove" class="btn btn-danger delete"><i class="fa fa-times-circle"></i></button></a></td>
                                             <td >
-                                                 <div style="width: 50px" >
+                                                 <div style="width: 100px" >
                                                   <input type="number" name="quantity" value="1" id="input-quantity" min="1" class="form-control">                  
                                                   <input type="hidden" id="product_id" value="<?=$model->id?>">
                                                  </div>
