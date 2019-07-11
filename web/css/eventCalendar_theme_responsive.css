@@ -53,8 +53,10 @@
 	}
 		.eventCalendar-currentTitle {
 			line-height:25px;
-			background-color:#138DA5;
-			outline:1px solid #138DA5;
+			/*background-color:#138DA5;
+			outline:1px solid #138DA5;*/
+			background-color:#e40981;
+			outline:1px solid #e40981;
 			border:1px solid #E3E3E3;
 			border-width:1px 0;
 		}
