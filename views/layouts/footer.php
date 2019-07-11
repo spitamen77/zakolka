@@ -35,9 +35,7 @@ use yii\helpers\Html;
         font-size: 15px;
         padding: 0;
     }
-    ul li {
-        margin-right: 50px
-    }
+   
 </style>
 
 
