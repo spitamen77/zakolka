@@ -35,6 +35,9 @@ use yii\helpers\Html;
         font-size: 15px;
         padding: 0;
     }
+    li  .white{
+        color: white
+    }
    
 </style>
 
@@ -47,9 +50,9 @@ use yii\helpers\Html;
         <div class="row">
             <div class="col-md-4">
                    <ul >
-                        <li ><span class="sp-ic icon-home"><i class="mar fa fa-home"></i></span>Bosh sahifa</li>
-                        <li><span class="sp-ic icon-envelope"><i class="mar fa fa-check-square"></i></span>Narxlar ro'yxati</li>
-                        <li><span class="sp-ic icon-phone"><i class="mar fa fa-file"></i></span>Contact</li>
+                        <li ><a class="white" href="<?=Url::to('/')?>"><span ><i class="mar fa fa-home"></i></span>Bosh sahifa</a></li><li ><a class="white" href="<?=Url::to('site/about')?>"><span ><i class="mar fa fa-home"></i></span>Biz haqimizda</a></li>
+                        <li><a class="white" href="<?=Url::to('site/pricelist')?>"><span ><i class="mar fa fa-check-square"></i></span>Narxlar ro'yxati</a></li>
+                        <li><a class="white" href="<?=Url::to('site/contact')?>"><span ><i class="mar fa fa-file"></i></span>Contact</a></li>
                     </ul>
             </div>
                 <div class="col-md-4">
@@ -59,9 +62,10 @@ use yii\helpers\Html;
                 </div>
              <div class="col-md-4">
                     <ul >
-                        <li ><span class="sp-ic icon-home"><i class="mar fa fa-map-marker"></i></span>Farģona, Qòqon shahar Navbaxor 26-uy</li>
-                        <li><span class="sp-ic icon-envelope"><i class="mar fa fa-envelope"></i></span>Sardor88.88@mail.ru</li>
-                        <li><span class="sp-ic icon-phone"><i class="mar fa fa-phone"></i></span>+998 93 3826003</li>
+                        <li ><span><i class="mar fa fa-map-marker"></i></span>Farģona, Qòqon shahar Navbaxor 26-uy</li>
+                        <li><span ><i class="mar fa fa-envelope"></i></span>Sardor88.88@mail.ru</li>
+                        <li><span ><i class="mar fa fa-phone"></i></span>+998 93 3826003</li>
+                        <li><span ><i class="mar fa fa-send bold"></i></span>@Sh_M_Aripov</li>
                     </ul>  
             </div>
         </div>
@@ -98,11 +102,11 @@ var x=document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);
 <?php $i=0; function PrintMenuFoot($menu){ ?>
     <? foreach ($menu as $value) {
         $i++; 
-        if ($i==4) break;
+        if ($i==5) break;
         // var_dump($key2); die;
         ?>
 
-        <li ><a style="color: white" href="<?=Url::to(['site/index', 'slug' => $value['slug']])?>" class="parent-a"><i class="mar fa fa-play"></i><?=$value['title']?></a>
+        <li ><a  href="<?=Url::to(['site/index', 'slug' => $value['slug']])?>" class="white parent-a"><i class="mar fa fa-play"></i><?=$value['title']?></a>
             <? if ($value['children']) { ?>
                
             <?} ?>
