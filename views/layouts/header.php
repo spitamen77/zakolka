@@ -6,6 +6,23 @@ use app\models\Lang;
 use app\models\ShopcartOrders;
 
 $goods = ShopcartOrders::goods();
+$this->registerJs("
+setInterval(setDateTime,1);
+    function setDateTime(){
+        var D = new Date();
+        var h = D.getHours();
+        var i = D.getMinutes();
+        var s = D.getSeconds();
+        if(h<10){
+            h = '0'+h;
+        }if(i<10){
+            i = '0'+i;
+        }if(s<10){
+            s = '0'+s;
+        }
+        document.getElementById('cur-time').innerHTML = h+':'+ i +':'+s;
+    }
+    ");
 ?>
 
 <div class="modal fade" id="download_after_register" role="dialog">
@@ -106,6 +123,9 @@ $goods = ShopcartOrders::goods();
                     <div class="prikh_header">
                         <div class="prikh_header__text">
                             <p><?=Lang::t('Organization name')?></p>
+
+                            <i> <span style="color: #e40981" class="topbar-date">UZB TIME:  <span id='cur-time'></span>&emsp;</span><span style="color: #e40981" ><?= date('d. m. Y') ?></span></i>
+
                         </div>
                         <div class="prikh_header__contacts">
                             <span class="mail-sp"><a href="mailto:<?=Lang::t('email')?>" title="<?=Lang::t('Send text to email')?>"><?=Lang::t('email')?></a></span>
