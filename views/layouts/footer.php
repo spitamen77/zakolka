@@ -1,5 +1,8 @@
 <?
 use app\models\Lang;
+use app\models\maxpirali\Menu;
+use yii\helpers\Url;
+use yii\helpers\Html;
 ?>
 <style type="text/css">
     .p{
@@ -7,7 +10,7 @@ use app\models\Lang;
     }
     .foot{
         background-color: #545455;
-        height: 30%
+        height: 35%
     }
     ul li a i.bold {
     width: 25px;
@@ -28,44 +31,40 @@ use app\models\Lang;
     .mar{
         margin: 10px
     }
+    div ul {
+        font-size: 15px;
+        padding: 0;
+    }
+    ul li {
+        margin-right: 50px
+    }
 </style>
 
 
 <footer class="footer foot">
     <div class="container p">
+        <section>
+            <img style="background: white; height: 50px" src="/img/logo.png">
+        </section>
         <div class="row">
-            <div class="col-md-4">                
-                <div class="footer-title">
-                    <img style="width: 150px; background: white" src="/img/logo.png">
-                </div>
-               
-                    <ul style="font-size: 20px">
-                        <li ><span class="sp-ic icon-home"><i class="mar fa fa-home"></i></span>Farģona viloyati, Qòqon shaxri Navbaxor kòchasi 26-uy</li>
-                        <li><span class="sp-ic icon-envelope"><i class="mar fa fa-envelope"></i></span>Sardor88.88@mail.ru</li>
-                        <li><span class="sp-ic icon-phone"><i class="mar fa fa-phone"></i></span>+998 93 3826003</li>
-                    </ul>
-              
-                           
-            </div>
             <div class="col-md-4">
-               
-               
-                    <ul style="font-size: 20px">
-                        <li ><span class="sp-ic icon-home"><i class="mar fa fa-home"></i></span>Farģona viloyati, Qòqon shaxri Navbaxor kòchasi 26-uy</li>
-                        <li><span class="sp-ic icon-envelope"><i class="mar fa fa-envelope"></i></span>Sardor88.88@mail.ru</li>
-                        <li><span class="sp-ic icon-phone"><i class="mar fa fa-phone"></i></span>+998 93 3826003</li>
+                   <ul >
+                        <li ><span class="sp-ic icon-home"><i class="mar fa fa-home"></i></span>Bosh sahifa</li>
+                        <li><span class="sp-ic icon-envelope"><i class="mar fa fa-check-square"></i></span>Narxlar ro'yxati</li>
+                        <li><span class="sp-ic icon-phone"><i class="mar fa fa-file"></i></span>Contact</li>
                     </ul>
-              
             </div>
+                <div class="col-md-4">
+                    <ul>
+                        <?php PrintMenuFoot(Menu::menus()); ?>
+                    </ul>              
+                </div>
              <div class="col-md-4">
-               
-               
-                    <ul style="font-size: 20px">
-                        <li ><span class="sp-ic icon-home"><i class="mar fa fa-home"></i></span>Farģona viloyati, Qòqon shaxri Navbaxor kòchasi 26-uy</li>
+                    <ul >
+                        <li ><span class="sp-ic icon-home"><i class="mar fa fa-map-marker"></i></span>Farģona, Qòqon shahar Navbaxor 26-uy</li>
                         <li><span class="sp-ic icon-envelope"><i class="mar fa fa-envelope"></i></span>Sardor88.88@mail.ru</li>
                         <li><span class="sp-ic icon-phone"><i class="mar fa fa-phone"></i></span>+998 93 3826003</li>
-                    </ul>
-              
+                    </ul>  
             </div>
         </div>
         <div class="like">            
@@ -97,3 +96,21 @@ window.replainSettings = { id: '0a09140a-6481-4f7e-9ff9-7ddb25d1d079' };
 var x=document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);
 })('https://widget.replain.cc/dist/client.js');
 </script>
+
+<?php $i=0; function PrintMenuFoot($menu){ ?>
+    <? foreach ($menu as $value) {
+        $i++; 
+        if ($i==4) break;
+        // var_dump($key2); die;
+        ?>
+
+        <li ><a style="color: white" href="<?=Url::to(['site/index', 'slug' => $value['slug']])?>" class="parent-a"><i class="mar fa fa-play"></i><?=$value['title']?></a>
+            <? if ($value['children']) { ?>
+               
+            <?} ?>
+        </li>
+        <? }  
+    }
+
+    
+?>

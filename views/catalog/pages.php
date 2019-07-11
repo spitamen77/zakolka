@@ -129,4 +129,5 @@ $this->title = $menu->title;
 
       <?php endforeach; ?>
    </div>
+ </div>
 
