@@ -247,4 +247,5 @@ class SiteController extends Controller
             'model' => $new,
         ]);
     }
+    
 }

@@ -45,7 +45,7 @@ use app\models\Lang;
     <ul>
     	<?php PrintMenuLeft(Menu::menus()); ?>
     </ul>
-    <div style="margin-top: 30px" id="eventCalendar"></div>
+    <!-- <div style="margin-top: 30px" id="eventCalendar"></div> -->
    <!--  <div>
         <a href="http://calendar.yuretz.ru" title="Календари на любой год - Календарь.Юрец.Ру"><img border="0" src="http://i.calendar.yuretz.ru/informer/grey.png" title="Календари на любой год - Календарь.Юрец.Ру" alt="Календари на любой год - Календарь.Юрец.Ру"></a>
 
@@ -65,8 +65,8 @@ use app\models\Lang;
 
     
 ?>
-<script src="http://code.jquery.com/jquery.min.js"></script>
-<script type="text/javascript">
+<!-- <script src="http://code.jquery.com/jquery.min.js"></script> -->
+<!-- <script type="text/javascript">
     $(function(){
         var data=[
             { "date": "1314579600000", "type": "meeting", "title": "Test Last Year", "description": "Lorem Ipsum dolor set", "url": "http://www.event3.com/" }, { "date": "1377738000000", "type": "meeting", "title": "Test Next Year", "description": "Lorem Ipsum dolor set", "url": "http://www.event3.com/" },
@@ -76,4 +76,4 @@ use app\models\Lang;
         });
     }
 );
-</script>
+</script> -->

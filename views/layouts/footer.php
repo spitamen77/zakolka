@@ -22,3 +22,9 @@ $this->registerJs('
 ');
 
 ?>
+<script>
+window.replainSettings = { id: 'b1762da7-3971-4abb-9c06-47d880cbe836' };
+(function(u){var s=document.createElement('script');s.type='text/javascript';s.async=true;s.src=u;
+var x=document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);
+})('https://widget.replain.cc/dist/client.js');
+</script>
