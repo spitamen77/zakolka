@@ -33,12 +33,12 @@ $this->title = $menu->title;
 
    <div class="row">
    	<?php foreach($model as $item): ?>
-      <div class="product-layout col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="product-layout col-lg-4 col-md-4 col-sm-6 col-xs-12">
     <div class="product-thumb transition">
       <div class="image">
         <a href="<?=Url::to('/?slug='.$menu->slug.'&item_slug='.$item->slug)?>">
         <img src="<?=$item->photo?>" alt="<?=$item->translate->title?>" title="<?=$item->translate->title?>" class="img-responsive"></a>
-      </div><br><br>
+      </div>
       <div class="caption">
         <a href="<?=Url::to('/?slug='.$menu->slug.'&item_slug='.$item->slug)?>" class="prd-name"><?=$item->translate->title?></a>        
         <!-- <p class="sku"><strong>Артикул:</strong>01371D-NRBD</p> -->
@@ -55,11 +55,11 @@ $this->title = $menu->title;
                 </div>
                 <div>
                   <span class="opt-price-name">Опт:</span><span class="opt-price-null">--</span>
-                </div> 
+                </div>
                                                     <div>
                                        <? if($item->sale): ?><span class="action-spec test3"></span><? endif; ?>
                                     </div>
-                 
+
               </div>
                 <button type="button" class="cart-button cart-button-krl" data-id="<?=$item->id?>" enabled="enabled"><?=Lang::t("Sotib olish")?></button>
                 <!-- Button fastorder -->
@@ -129,4 +129,5 @@ $this->title = $menu->title;
 
       <?php endforeach; ?>
    </div>
+ </div>
 

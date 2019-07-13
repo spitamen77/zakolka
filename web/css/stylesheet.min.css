@@ -382,8 +382,8 @@ span.mail-sp, span.phone-sp {
 	margin-left: 10px
 }
 footer>.container {
-	border-top: 4px solid #000;
-	padding-top: 20px
+	/*border-top: 4px solid #000;
+	padding-top: 20px*/
 }
 footer .col>h5 {
 	color: #000;
@@ -617,7 +617,8 @@ button.btn-default:hover {
 }
 .form-control {
 	border-radius: 0;
-	border: 1px solid #000;
+	/*border: 1px solid #000;*/
+	border: 1px solid #1297c1;
 	margin-bottom: 3px;
 	outline: 0
 }
