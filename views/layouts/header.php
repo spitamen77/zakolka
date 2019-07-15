@@ -98,7 +98,7 @@ setInterval(setDateTime,1);
             </div>
             <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
                 <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><?=Lang::t('menu')?><span class="caret"></span></button>
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"><?=Lang::t('menu')?><span class="caret"></span></button>
 
                     <ul class="dropdown-menu">
                         <?php PrintMenu(Menu::menus()); ?>
@@ -141,6 +141,14 @@ setInterval(setDateTime,1);
                                     <p class="phone-sp"><?=Yii::$app->user->identity->username?></p><br>
                                     <?= Html::a(Lang::t('Logout'), ['site/logout'], ['data' => ['method' => 'post']]) ?>
                                 <? endif; ?>
+
+                            </div>
+                            <div class="prikh_btns" style="display: inherit;">
+
+                                <?= Html::a(Lang::t('Uz'), ['site/lang',['id'=>'uz-UZ', 'url'=>Url::current()]]) ?>
+                                <span> | </span>
+                                <?= Html::a(Lang::t('Ru'), ['site/lang',['id'=>'ru-RU', 'url'=>Url::current()]]) ?>
+                                                        
                             </div>
                         </div>
                     </div>
