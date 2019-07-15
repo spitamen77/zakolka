@@ -25,6 +25,10 @@ class SiteController extends Controller
      */
     public function beforeAction($action)
     {
+        $cookies = Yii::$app->request->cookies;
+        if (($cookie = $cookies->get('language')) !== null) {
+            Yii::$app->language = $cookie->value;
+        }
         if (Yii::$app->user->isGuest) {
             if(Yii::$app->controller->action->id!='login'){
             $model = new LoginForm();
@@ -270,4 +274,19 @@ class SiteController extends Controller
     //         'model' => $model,
     //     ]);
     // }
+
+    public function actionLang(){
+        $get = Yii::$app->request->get();
+        $cookies = Yii::$app->response->cookies;
+        $cookies->add(new \yii\web\Cookie([
+            'name' => 'language',
+            'value' => $get[1]['id'],
+        ]));
+        // echo "<pre>"; var_dump($vaa); die;
+        if($get){
+            return $this->redirect($get[1]['url']);
+        }else{
+          return $this->goHome();
+        }
+    }
 }
