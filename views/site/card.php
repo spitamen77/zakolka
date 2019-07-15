@@ -79,15 +79,16 @@ tr:nth-child(even) {
                             <?php endif;?>
                                 </tbody>
                                 <tfoot>
-                                <tr>
+                                <tr style="border-top:solid">
                                     <td colspan="3"><h4><?= Lang::t('Total Cost') ?></h4></td>
                                     <td class="width-90 summa"><h4><b><?= $items->cost ?></b></h4></td>
                                 </tr>
                                 </tfoot>
                             </table>
-                            <div class="block shop-bottom-btns"><a class="btn btn-large left" href="<?//= $this->to('catalog/books') ?>"><?= Lang::t('Continue Shopping') ?></a>
-                               
-                                <a class="btn btn-large main-bg right" href="<?=Url::to(['site/address'])?>"><?= Lang::t('Proceed to Checkout') ?></a></div>
+                            <div class="">
+                                <a class="btn btn-danger left" href="<?//= $this->to('catalog/books') ?>"><?= Lang::t('Continue Shopping') ?></a>                               
+                                <a class="btn btn-danger main-bg right" href="<?=Url::to(['site/address'])?>"><?= Lang::t('Proceed to Checkout') ?></a>
+                            </div>
                                
                             
                     </div>
