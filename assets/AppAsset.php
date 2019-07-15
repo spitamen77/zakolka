@@ -31,8 +31,8 @@ class AppAsset extends AssetBundle
         'css/owl.transitions.css',
         // 'css/style.min.css',
         'css/stylesheet.min.css',
-        // 'css/eventCalendar.css',
-        // 'css/eventCalendar_theme_responsive.css',
+        'css/eventCalendar.css',
+        'css/eventCalendar_theme_responsive.css',
     ];
     public $js = [
         'js/addthis_widget.js',
@@ -49,9 +49,9 @@ class AppAsset extends AssetBundle
         // 'js/watch.js',
 
         // men ulaganlar!!!!
-        // 'js/moment.js',
-        // 'js/jquery.eventCalendar.js',
-        // 'http://code.jquery.com/jquery.min.js'
+        'js/moment.js',
+        'js/jquery.eventCalendar.js',
+      
     ];
     public $depends = [
         'yii\web\YiiAsset',
