@@ -165,6 +165,16 @@ class SiteController extends Controller
         return $this->render('about');
     }
 
+
+
+     public function actionPricelist()
+    {
+        return $this->render('pricelist');
+    }
+
+
+
+
     public function actionSignup()
     {
         $model = new SignupForm(); // Не забываем добавить в начало файла: use app\models\SignupForm; или заменить 'new SignupForm()' на '\app\models\SignupForm()'
