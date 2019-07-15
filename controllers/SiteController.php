@@ -254,8 +254,9 @@ class SiteController extends Controller
         $quantity = ($_GET['quantity'])?$_GET['quantity']:1;
         $good = ShopcartGoods::saved($item_id, $quantity);
         if ($good=="success") {
+            $order = ShopcartOrders::find()->where(['access_token'=>Yii::$app->session->getId()])->one();
             Yii::$app->response->format='json';
-            return ['result' => 'success'];
+            return ['result' => 'success','cost'=>$order->cost, 'count'=>$order->count];
         }
         else {
             Yii::$app->response->format='json';

@@ -106,8 +106,9 @@ $this->registerJs('
         $.get("/site/sale",{item: items},function(response){
             
                 if(response.result=="success"){
+                    $("b.soni").text(response.count);
+                    $("b.narxi").text(response.cost);
                      // window.location.reload();
-                    //console.log(response.result);
                 } else console.log(response.result);
             });
     });
