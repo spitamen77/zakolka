@@ -97,3 +97,21 @@ use yii\helpers\Html;
 
     
 ?>
+<?php
+$this->registerJs('
+    $(".cart-button-krl").click(function(e){
+        // e.preventDefault();
+        var items = $(this).attr("data-id");
+        // console.log(items);
+        $.get("/site/sale",{item: items},function(response){
+            
+                if(response.result=="success"){
+                    $("b.soni").text(response.count);
+                    $("b.narxi").text(response.cost);
+                     // window.location.reload();
+                } else console.log(response.result);
+            });
+    });
+');
+
+?>

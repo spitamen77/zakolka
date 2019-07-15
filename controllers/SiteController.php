@@ -159,6 +159,32 @@ class SiteController extends Controller
         ]);
     }
 
+
+
+    public function actionAddress()
+    {
+        $id = ShopcartOrders::getId();
+        $model=ShopcartOrders::find()->where(['order_id'=>$id])->one();
+
+        if ($model->load(Yii::$app->request->post())) {   
+        $model->status=1;  
+        $model->address=$model->address." ,".$model->remark;
+        $model->remark=NULL;
+
+        if ($model->save())
+            return $this->render('sucsess', [
+            'model' => $model,
+        ]);
+        }
+        return $this->render('address', [
+            'model' => $model,
+        ]);
+    }
+
+
+
+
+
     /**
      * Displays about page.
      *
@@ -168,6 +194,22 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+
+
+
+     public function actionPricelist(){
+
+        return $this->render('pricelist');
+    }
+
+
+     public function actionSucsess(){
+
+        return $this->render('sucsess');
+    }
+
+
+
 
     public function actionSignup()
     {
@@ -216,8 +258,9 @@ class SiteController extends Controller
         $quantity = ($_GET['quantity'])?$_GET['quantity']:1;
         $good = ShopcartGoods::saved($item_id, $quantity);
         if ($good=="success") {
+            $order = ShopcartOrders::find()->where(['access_token'=>Yii::$app->session->getId()])->one();
             Yii::$app->response->format='json';
-            return ['result' => 'success'];
+            return ['result' => 'success','cost'=>$order->cost, 'count'=>$order->count];
         }
         else {
             Yii::$app->response->format='json';
@@ -233,6 +276,8 @@ class SiteController extends Controller
             'items' => $order,
         ]);
     }
+
+
 
     public function actionDelete()
     {

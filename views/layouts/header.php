@@ -124,7 +124,7 @@ setInterval(setDateTime,1);
                         <div class="prikh_header__text">
                             <p><?=Lang::t('Organization name')?></p>
 
-                            <i> <span style="color: #e40981" class="topbar-date">UZB TIME:  <span id='cur-time'></span>&emsp;</span><span style="color: #e40981" ><?= date('d. m. Y') ?></span></i>
+                            <i> <span style="color: #e40981" class="topbar-date"><span id='cur-time'></span>&emsp;</span><span style="color: #e40981" ><?= date('d. m. Y') ?></span></i>
 
                         </div>
                         <div class="prikh_header__contacts">
@@ -177,7 +177,7 @@ setInterval(setDateTime,1);
                             
                             <a class="cart-link dropdown" href="<?=Url::to('site/cart')?>">
                                 <span class="cart-title"><?=Lang::t('Basket')?>:</span>
-                                <span id="cart-total"><b><?=($goods->count)?$goods->count:0?></b> <?=Lang::t('products worth')?> <?=($goods->cost)?$goods->cost:0?> so`m</span>
+                                <span id="cart-total"><b class="soni"><?=($goods->count)?$goods->count:0?></b> <?=Lang::t('products worth')?> <b class="narxi"><?=($goods->cost)?$goods->cost:0?></b> so`m</span>
                                 <i class="fa fa-chevron-circle-down" aria-hidden="true"></i>
                                 <ul class="dropdown-menu pull-right">
                                     <li>

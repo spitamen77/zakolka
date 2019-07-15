@@ -40,7 +40,7 @@ tr:nth-child(even) {
                                     <th colspan="2"><?= Lang::t('Product Name') ?></th>
                                     <th class="center"><?= Lang::t('Price') ?></th>
                                     <th class="center"><?= Lang::t('Summ') ?></th>
-                                    <th class="width-10"><?= Lang::t('much') ?></th>
+                                    <th class=""><?= Lang::t('much') ?></th>
                                     <th class="width-10"><?= Lang::t('Delete') ?></th>
 
                                 </tr>
@@ -69,8 +69,8 @@ tr:nth-child(even) {
                                         <?=$item->price * (1 - $item->sale/100) * $item->count?>
                                     </td>
 
-                                            <td >
-                                                  <input type="number" name="quantity" data-id="<?=$item->item->id?>" min="1" class="input-quantity form-control" value="<?=$item->count?>">
+                                            <td  style='width:10%'>
+                                                  <input type="number" name="quantity" data-id="<?=$item->item->id?>" min="1" class="input-quantity form-control" value="1">
                                             </td>
                                     <td class="text-center"><a class="remove-item remove" href="#" data-id="<?=$item->good_id?>" data-value="<?= $item->price ?>" title="<?= Lang::t('Remove Item From Cart') ?>">
                                            <button type="button" data-id="169" title="Remove" class="btn btn-danger delete"><i class="fa fa-times-circle"></i></button></a></td>
@@ -86,12 +86,10 @@ tr:nth-child(even) {
                                 </tfoot>
                             </table>
                             <div class="block shop-bottom-btns"><a class="btn btn-large left" href="<?//= $this->to('catalog/books') ?>"><?= Lang::t('Continue Shopping') ?></a>
-                                <?php if (Yii::$app->user->isGuest){ ?>
-                                <a class="btn btn-large main-bg right" href="<?//= $this->to('shopcart/check-out') ?>"><?= Lang::t('Proceed to Checkout') ?></a></div>
-                                <?php } else { ?>
-                                <a class="btn btn-large main-bg right" href="<?//= $this->to('users/login') ?>"><?= Lang::t('Proceed to Checkout') ?></a></div>
-                                <?php } ?>
-                        </div>
+                               
+                                <a class="btn btn-large main-bg right" href="<?=Url::to(['site/address'])?>"><?= Lang::t('Proceed to Checkout') ?></a></div>
+                               
+                            
                     </div>
                 </div>
             </div>
