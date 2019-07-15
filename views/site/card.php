@@ -86,12 +86,10 @@ tr:nth-child(even) {
                                 </tfoot>
                             </table>
                             <div class="block shop-bottom-btns"><a class="btn btn-large left" href="<?//= $this->to('catalog/books') ?>"><?= Lang::t('Continue Shopping') ?></a>
-                                <?php if (Yii::$app->user->isGuest){ ?>
-                                <a class="btn btn-large main-bg right" href="<?//= $this->to('shopcart/check-out') ?>"><?= Lang::t('Proceed to Checkout') ?></a></div>
-                                <?php } else { ?>
-                                <a class="btn btn-large main-bg right" href="<?//= $this->to('users/login') ?>"><?= Lang::t('Proceed to Checkout') ?></a></div>
-                                <?php } ?>
-                        </div>
+                               
+                                <a class="btn btn-large main-bg right" href="<?=Url::to(['site/address'])?>"><?= Lang::t('Proceed to Checkout') ?></a></div>
+                               
+                            
                     </div>
                 </div>
             </div>

@@ -155,6 +155,32 @@ class SiteController extends Controller
         ]);
     }
 
+
+
+    public function actionAddress()
+    {
+        $id = ShopcartOrders::getId();
+        $model=ShopcartOrders::find()->where(['order_id'=>$id])->one();
+
+        if ($model->load(Yii::$app->request->post())) {   
+        $model->status=1;  
+        $model->address=$model->address." ,".$model->remark;
+        $model->remark=NULL;
+
+        if ($model->save())
+            return $this->render('sucsess', [
+            'model' => $model,
+        ]);
+        }
+        return $this->render('address', [
+            'model' => $model,
+        ]);
+    }
+
+
+
+
+
     /**
      * Displays about page.
      *
@@ -167,9 +193,15 @@ class SiteController extends Controller
 
 
 
-     public function actionPricelist()
-    {
+     public function actionPricelist(){
+
         return $this->render('pricelist');
+    }
+
+
+     public function actionSucsess(){
+
+        return $this->render('sucsess');
     }
 
 
@@ -239,6 +271,8 @@ class SiteController extends Controller
             'items' => $order,
         ]);
     }
+
+
 
     public function actionDelete()
     {

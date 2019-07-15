@@ -86,6 +86,7 @@ class ShopcartOrders extends \yii\db\ActiveRecord
             $this->time = time();
         }else{
             $this->auth_user = Yii::$app->user->identity->id;
+            $this->time = time();
             // $this->updated_date = time();
         }
         return parent::beforeSave($insert);
@@ -144,5 +145,11 @@ class ShopcartOrders extends \yii\db\ActiveRecord
     public static function shop()
     {
         return self::find()->where(['new'=>self::ADMIN_NO_SEEN])->andWhere(['status'=>self::ADMIN_SEEN])->count();
+    }
+
+    public static function getId(){
+
+        $model = self::find()->where(['access_token'=>Yii::$app->session->getId()])->one();
+        return $model->order_id;
     }
 }
