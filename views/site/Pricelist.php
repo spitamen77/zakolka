@@ -1,5 +1,7 @@
 <?php
+use app\models\ShopcartOrders;
 use app\models\Lang;
+use yii\helpers\Url;
 use yii\helpers\Html;
 
 $this->title = Lang::t('pricelist');
@@ -29,16 +31,40 @@ tr:nth-child(even) {
 
 <table>
   <tr>
-    <th>Company</th>
-    <th>Contact</th>
-    <th>Country</th>
+    <th>title</th>
+    <th>pieces</th>
+    <th>price</th>
+    <th>sale</th>
   </tr>
+  
+  <?
+  foreach ($items as $value): ?>
   <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
+    <td><?=$value->title?></td>
+    <td>
+      <?php
+                                        if ($item->pieces==NULL){?>
+                                            <b>                                                
+                                            <?= Lang::t('dona') ?>
+                                            </b>
+                                        <?}else {?>
+                                            <b>                                                
+                                            <?= Lang::t('pachkada') ?>
+                                            </b>
+                                            <br>
+                                        <?=$item->pieces?>
+                                        <?= Lang::t('  ta bor') ?>
+                                            <?}?>
+    </td>
+    <td><?=$value->price?></td>
+    <td><?=$value->sale?></td>
   </tr>
-  <tr>
+<? endforeach; ?>
+
+
+
+
+  <!-- <tr>
     <td>Centro comercial Moctezuma</td>
     <td>Francisco Chang</td>
     <td>Mexico</td>
@@ -62,7 +88,7 @@ tr:nth-child(even) {
     <td>Magazzini Alimentari Riuniti</td>
     <td>Giovanni Rovelli</td>
     <td>Italy</td>
-  </tr>
+  </tr> -->
 </table>
 
 

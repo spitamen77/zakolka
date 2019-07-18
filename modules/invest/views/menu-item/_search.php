@@ -36,6 +36,8 @@ use yii\widgets\ActiveForm;
     <?php // echo $form->field($model, 'price') ?>
 
     <?php // echo $form->field($model, 'sale') ?>
+    
+    <?php // echo $form->field($model, 'pieces') ?>
 
     <?php // echo $form->field($model, 'user_id') ?>
 

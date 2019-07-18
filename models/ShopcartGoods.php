@@ -16,6 +16,7 @@ use app\models\maxpirali\MenuItem;
  * @property string $options
  * @property double $price
  * @property int $sale
+ * @property int $pieces
  */
 class ShopcartGoods extends \yii\db\ActiveRecord
 {
@@ -33,7 +34,7 @@ class ShopcartGoods extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['order_id', 'item_id', 'count', 'sale'], 'integer'],
+            [['order_id', 'item_id', 'count', 'sale','pieces'], 'integer'],
             [['item_id'], 'required'],
             [['price'], 'integer'],
             // [['options'], 'string', 'max' => 255],
@@ -53,6 +54,7 @@ class ShopcartGoods extends \yii\db\ActiveRecord
             // 'options' => 'Options',
             'price' => 'Price',
             'sale' => 'Sale',
+            'pieces'=>'Pieces',
         ];
     }
 
@@ -78,6 +80,7 @@ class ShopcartGoods extends \yii\db\ActiveRecord
                         $good->count = $quantity;
                         $good->price = $menu_item['price'];
                         $good->sale = $menu_item['sale'];
+                        $good->pieces = $menu_item['pieces'];
                         if ($good->save()) return "success";
                         else return "error";                 
                     }
@@ -96,6 +99,7 @@ class ShopcartGoods extends \yii\db\ActiveRecord
                 $good->count = 1;
                 $good->price = $menu_item['price'];
                 $good->sale = $menu_item['sale'];
+                $good->pieces = $menu_item['pieces'];
                 if ($good->save()) return "success";
                 else return "error";                 
             }

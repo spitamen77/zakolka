@@ -197,10 +197,7 @@ class SiteController extends Controller
 
 
 
-     public function actionPricelist(){
-
-        return $this->render('pricelist');
-    }
+    
 
 
      public function actionSucsess(){
@@ -274,6 +271,14 @@ class SiteController extends Controller
         // return $this->render('card');
         return $this->render('card', [
             'items' => $order,
+        ]);
+    }
+     public function actionPricelist(){
+
+        $price = MenuItem::find()->all();
+
+        return $this->render('pricelist',[
+            'items'=>$price,
         ]);
     }
 

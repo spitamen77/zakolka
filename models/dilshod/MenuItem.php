@@ -20,6 +20,7 @@ use app\models\Lang;
  * @property integer $status
  * @property integer $price
  * @property integer $sale
+ * @property integer $pieces
  * @property integer $user_id
  * @property integer $created_date
  * @property integer $updated_date
@@ -46,7 +47,7 @@ class MenuItem extends \yii\db\ActiveRecord
         return [
             [['menu_id', 'title', 'text', 'slug', ], 'required'],
             ['slug', 'unique', 'message' => 'Slug mavjud'],
-            [['menu_id', 'views', 'status', 'price', 'sale', 'user_id', 'created_date', 'updated_date'], 'integer'],
+            [['menu_id', 'views', 'status', 'price', 'sale','pieces', 'user_id', 'created_date', 'updated_date'], 'integer'],
             [['text'], 'string'],
             [['title', 'photo', 'slug'], 'string', 'max' => 128],
             [['short'], 'string', 'max' => 255],
@@ -113,6 +114,7 @@ class MenuItem extends \yii\db\ActiveRecord
             'status' => 'Status',
             'price' => 'Price',
             'sale' => 'Sale',
+            'pieces' => 'Pieces',
             'user_id' => 'User ID',
             'created_date' => 'Created Date',
             'updated_date' => 'Updated Date',

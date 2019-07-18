@@ -38,11 +38,27 @@ $this->params['breadcrumbs'][] = $this->title;
                    return  $model->getMenuTitle($model->menu_id);
                },
             ],
+            [
+             'attribute' =>  Lang::t("Rasm"),
+             'format' => 'raw',
+             'value' => function ($model) {   
+                if (!empty($model->photo))
+                  return '<img src="/web/'.$model->photo.'" width="120px" height="auto">'; 
+                else return Lang::t('Rasm yuklanmagan');
+             },
+            ],
             'title',
             'short',
             'text:ntext',
             //'slug',
             'views',
+             //'status',
+            'price',
+            'sale',
+            'pieces',
+            //'user_id',
+            //'created_date',
+            //'updated_date',
             [
              'attribute' =>  Lang::t("Lang"),
              'value' => function ($model) {  
@@ -57,22 +73,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 return $val;
              },
             ],
-            [
-             'attribute' =>  Lang::t("Rasm"),
-             'format' => 'raw',
-             'value' => function ($model) {   
-                if (!empty($model->photo))
-                  return '<img src="/web/'.$model->photo.'" width="120px" height="auto">'; 
-                else return Lang::t('Rasm yuklanmagan');
-             },
-            ],
+            
           
-            //'status',
-            //'price',
-            //'sale',
-            //'user_id',
-            //'created_date',
-            //'updated_date',
+           
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

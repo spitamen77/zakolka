@@ -17,7 +17,7 @@ class MenuItemSearch extends MenuItem
     public function rules()
     {
         return [
-            [['id', 'menu_id', 'views', 'status', 'price', 'sale', 'user_id', 'created_date', 'updated_date'], 'integer'],
+            [['id', 'menu_id', 'views', 'status', 'price', 'sale','pieces', 'user_id', 'created_date', 'updated_date'], 'integer'],
             [['title', 'photo', 'short', 'text', 'slug'], 'safe'],
         ];
     }
@@ -69,6 +69,7 @@ class MenuItemSearch extends MenuItem
             'status' => $this->status,
             'price' => $this->price,
             'sale' => $this->sale,
+            'pieces' => $this->pieces,
             'user_id' => $this->user_id,
             'created_date' => $this->created_date,
             'updated_date' => $this->updated_date,

@@ -40,6 +40,7 @@ tr:nth-child(even) {
                                     <th colspan="2"><?= Lang::t('Product Name') ?></th>
                                     <th class="center"><?= Lang::t('Price') ?></th>
                                     <th class="center"><?= Lang::t('Summ') ?></th>
+                                    <th class="center"><?= Lang::t('Pieces') ?></th>
                                     <th class=""><?= Lang::t('much') ?></th>
                                     <th class="width-10"><?= Lang::t('Delete') ?></th>
 
@@ -54,7 +55,7 @@ tr:nth-child(even) {
                                     </td>
                                     <td>
                                         <a href="<?=Url::to('/?slug='.$item->item->template->slug.'&item_slug='.$item->item->slug)?>">
-                                            <h3 class="product_title"><?= $item->item->title?>&nbsp;<span>(<?=$item->item->template->title?>)</span></h3>
+                                            <h4 class="product_title"><?= $item->item->title?>&nbsp;<span>(<?=$item->item->template->title?>)</span></h4>
                                         </a>
                                     </td>
                                     <td class="text-center">
@@ -68,12 +69,28 @@ tr:nth-child(even) {
                                     <td>
                                         <?=$item->price * (1 - $item->sale/100) * $item->count?>
                                     </td>
-
-                                            <td  style='width:10%'>
-                                                  <input type="number" name="quantity" data-id="<?=$item->item->id?>" min="1" class="input-quantity form-control" value="1">
-                                            </td>
-                                    <td class="text-center"><a class="remove-item remove" href="#" data-id="<?=$item->good_id?>" data-value="<?= $item->price ?>" title="<?= Lang::t('Remove Item From Cart') ?>">
-                                           <button type="button" data-id="169" title="Remove" class="btn btn-danger delete"><i class="fa fa-times-circle"></i></button></a></td>
+                                    <td>
+                                        <?php
+                                        if ($item->pieces==NULL){?>
+                                            <b>                                                
+                                            <?= Lang::t('dona') ?>
+                                            </b>
+                                        <?}else {?>
+                                            <b>                                                
+                                            <?= Lang::t('pachkada') ?>
+                                            </b>
+                                            <br>
+                                        <?=$item->pieces?>
+                                        <?= Lang::t('  ta bor') ?>
+                                            <?}?>
+                                        
+                                    </td>
+                                    <td  style='width:10%'>
+                                         <input type="number" name="quantity" data-id="<?=$item->item->id?>" min="1" class="input-quantity form-control" value="1">
+                                     </td>
+                                    <td class="text-center"><a class="remove-item remove" href="#"      data-id="<?=$item->good_id?>" data-value="<?= $item->price  ?>" title="<?= Lang::t('Remove Item From Cart') ?>">
+                                           <button type="button" data-id="169" title="Remove" class="btn btn-danger delete"><i class="fa fa-times-circle"></i></button></a>
+                                    </td>
                                 </tr>
                                 <?php endforeach; ?>
                             <?php endif;?>
@@ -94,6 +111,8 @@ tr:nth-child(even) {
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
 
     </section>

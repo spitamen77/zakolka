@@ -43,6 +43,7 @@ use dosamigos\tinymce\TinyMce;
     <?= $form->field($model, 'price')->textInput(['class' => 'your form-control']) ?>
 
     <?= $form->field($model, 'sale')->textInput(['class' => 'your form-control']) ?>
+    <?= $form->field($model, 'pieces')->textInput(['class' => 'your form-control']) ?>
     </div>
     <?= $form->field($model, 'photo')->fileInput() ?>
 

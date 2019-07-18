@@ -70,6 +70,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <th>Nomi:</th>
                 <th>Narxi</th>
                 <th>Chegirma</th>
+                <th>Pieces</th>
                 <th>Soni</th>
                 <th>Jami summa</th>
                
@@ -80,6 +81,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td><?= $item->item->title ?></td>
                 <td><?= $item->item->price ?></td>
                 <td><?= $item->item->sale ?></td>
+                <td><?= $item->pieces ?></td>
                 <td><?= $item->count ?></td>
                 <td><?= $item->cost ?></td>
                
