@@ -3,12 +3,12 @@
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model app\models\ContactForm */
-
+use app\models\Lang;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
 
-$this->title = 'Addres';
+$this->title = Lang::t('address');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-contact">
@@ -34,8 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php else: ?>
 
         <p>
-            If you have business inquiries or other questions, please fill out the following form to contact us.
-            Thank you.
+           <?= Lang::t('text2') ?>
         </p>
 
         <div class="row">
@@ -50,8 +49,6 @@ $this->params['breadcrumbs'][] = $this->title;
                            
                             <?= $form->field($model, 'comment')->textArea() ?>                  
                     
-                           
-
                         </div>
 
 

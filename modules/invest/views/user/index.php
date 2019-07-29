@@ -28,6 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             // 'id',
             'username',
+            'fio',
             // 'auth_key',
             // 'password_hash',
             // 'password_reset_token',
@@ -54,15 +55,15 @@ $this->params['breadcrumbs'][] = $this->title;
                    return  date("Y-m-d",$model->created_at);
                },
             ],
-            [
-             'attribute' =>  Lang::t("Rasm"),
-             'format' => 'raw',
-             'value' => function ($model) {   
-                if (!empty($model->image))
-                  return '<img src="/web/'.$model->image.'" width="64px" height="auto">'; 
-                else return Lang::t('Rasm yuklanmagan');
-             },
-            ],
+            // [
+            //  'attribute' =>  Lang::t("Rasm"),
+            //  'format' => 'raw',
+            //  'value' => function ($model) {   
+            //     if (!empty($model->image))
+            //       return '<img src="/web/'.$model->image.'" width="64px" height="auto">'; 
+            //     else return Lang::t('Rasm yuklanmagan');
+            //  },
+            // ],
             //'fio',
             //'tel',
             //'birthdate',

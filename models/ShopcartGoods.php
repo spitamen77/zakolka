@@ -67,7 +67,7 @@ class ShopcartGoods extends \yii\db\ActiveRecord
                 $good = self::find()->where(['order_id'=>$item->order_id])
                         ->andWhere(['item_id'=>$item_id])->one();
                 if (!empty($good)) {        // Agar oldin sotib olgan bo`lsa
-                    $good->count += $quantity;
+                    $good->count = $quantity;
                     if ($good->save()) return "success";
                     else return "error";
                 }

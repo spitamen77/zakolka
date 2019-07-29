@@ -49,6 +49,7 @@ use dosamigos\tinymce\TinyMce;
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+         <a href='javascript:history.back()' class='btn btn-danger'>ortga</a>
     </div>
 
     <?php ActiveForm::end(); ?>

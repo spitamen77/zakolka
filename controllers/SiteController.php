@@ -1,8 +1,9 @@
 <?php
 
 namespace app\controllers;
-
+use app\models\Lang;
 use Yii;
+use app\models\User;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
@@ -30,7 +31,8 @@ class SiteController extends Controller
             Yii::$app->language = $cookie->value;
         }
         if (Yii::$app->user->isGuest) {
-            if(Yii::$app->controller->action->id!='login'){
+            if((Yii::$app->controller->action->id!='login') && 
+            (Yii::$app->controller->action->id!='signup')){
             $model = new LoginForm();
             return $this->redirect(['login', 'model' => $model]);
         }
@@ -161,24 +163,52 @@ class SiteController extends Controller
 
 
 
-    public function actionAddress()
+    // public function actionAddress()
+    // {
+    //     $id = ShopcartOrders::getId();
+    //     $model=ShopcartOrders::find()->where(['order_id'=>$id])->one();
+
+    //     if ($model->load(Yii::$app->request->post())) {   
+    //     $model->status=1;  
+    //     $model->address=$model->address." ,".$model->remark;
+    //     $model->remark=NULL;
+
+    //     if ($model->save())
+    //         return $this->render('sucsess', [
+    //         'model' => $model,
+    //     ]);
+    //     }
+    //     return $this->render('address', [
+    //         'model' => $model,
+    //     ]);
+    // }
+
+
+    public function actionComplete()
     {
         $id = ShopcartOrders::getId();
+        if (empty($id)) {
+        return $this->goHome();
+         }
         $model=ShopcartOrders::find()->where(['order_id'=>$id])->one();
+        $user  = User::find()->where(['id'=>$model->auth_user])->one();
 
-        if ($model->load(Yii::$app->request->post())) {   
+      
         $model->status=1;  
-        $model->address=$model->address." ,".$model->remark;
-        $model->remark=NULL;
-
+        $model->remark=$user->remark;
+        $model->address=$user->address.",".$model->remark;
+        $model->phone=$user->tel;
+        $model->name=$user->username;
+        $model->email=$user->email;
+        // $model->fio=$user->fio;
+        // $model->remark=NULL;
+        
         if ($model->save())
             return $this->render('sucsess', [
             'model' => $model,
         ]);
-        }
-        return $this->render('address', [
-            'model' => $model,
-        ]);
+        exit(Lang::t('error'));
+       
     }
 
 
@@ -213,6 +243,7 @@ class SiteController extends Controller
         $model = new SignupForm(); // Не забываем добавить в начало файла: use app\models\SignupForm; или заменить 'new SignupForm()' на '\app\models\SignupForm()'
 
         if ($model->load(Yii::$app->request->post())) { // Если есть, загружаем post данные в модель через родительский метод load класса Model
+            // var_dump($model);die;
             if ($user = $model->signup()) { // Регистрация
                 // if (Yii::$app->getUser()->login($user)) { // Логиним пользователя если регистрация успешна
                     return $this->actionConfirm(); // Возвращаем на главную страницу

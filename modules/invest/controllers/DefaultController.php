@@ -10,16 +10,6 @@ use Yii;
  */
 class DefaultController extends Controller
 {
-	public function beforeAction($action)
-	{
-		
-		if(Yii::$app->user->isGuest) {
-			$this->redirect(['/invest/site/login']);
-		}
-		// else exit("else");
-		return parent::beforeAction($action);
-		
-	}
 
     /**
      * Renders the index view for the module

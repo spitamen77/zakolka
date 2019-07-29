@@ -1,6 +1,6 @@
 <?php
 use yii\helpers\Html;
-use app\models\lang;
+use app\models\Lang;
 use app\models\dilshod\User;
 use app\models\ShopcartOrders;
 /* @var $this \yii\web\View */

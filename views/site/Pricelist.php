@@ -31,10 +31,10 @@ tr:nth-child(even) {
 
 <table>
   <tr>
-    <th>title</th>
-    <th>pieces</th>
-    <th>price</th>
-    <th>sale</th>
+    <th><?=Lang::t("Product Name")?></th>
+    <th><?=Lang::t("Pieces")?></th>
+    <th><?=Lang::t("Price")?></th>
+    <th><?=Lang::t("Sale")?></th>
   </tr>
   
   <?
@@ -43,7 +43,7 @@ tr:nth-child(even) {
     <td><?=$value->title?></td>
     <td>
       <?php
-                                        if ($item->pieces==NULL){?>
+                                        if ($value->pieces==NULL){?>
                                             <b>                                                
                                             <?= Lang::t('dona') ?>
                                             </b>
@@ -52,7 +52,7 @@ tr:nth-child(even) {
                                             <?= Lang::t('pachkada') ?>
                                             </b>
                                             <br>
-                                        <?=$item->pieces?>
+                                        <?=$value->pieces?>
                                         <?= Lang::t('  ta bor') ?>
                                             <?}?>
     </td>

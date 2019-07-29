@@ -62,7 +62,7 @@ $this->title = Lang::t('Menyu');
 </tbody>
 </table>
 </div>
- <a href='javascript:history.back()' class='btn btn-danger'>ortga</a>
+ <!-- <a href='javascript:history.back()' class='btn btn-danger'>ortga</a> -->
 </div>
 
 <!-- Modal update -->

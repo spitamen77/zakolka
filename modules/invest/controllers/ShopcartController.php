@@ -89,6 +89,13 @@ class ShopcartController extends Controller
     {
         $model = $this->findModel($id);
         $model->new = ShopcartOrders::ADMIN_SEEN;
+        // foreach ($model->goods as $value) {
+        //     if ($value->item->count >= $value->count) {
+        //         $value->item->count = $value->item->count - $value->count;
+        //         $value->item->save(false);
+        //     }
+        // }
+        // echo "<pre>"; var_dump($model->goods); exit();
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->order_id]);
         }

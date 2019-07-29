@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'address',
             'phone',
             'email:email',
-            'comment',
+            // 'comment',
             //'remark',
             //'access_token',
             //'ip',

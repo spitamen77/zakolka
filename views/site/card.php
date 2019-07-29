@@ -86,7 +86,7 @@ tr:nth-child(even) {
                                         
                                     </td>
                                     <td  style='width:10%'>
-                                         <input type="number" name="quantity" data-id="<?=$item->item->id?>" min="1" class="input-quantity form-control" value="1">
+                                         <input type="number" name="quantity" data-id="<?=$item->item->id?>" min="1" class="input-quantity form-control" value="<?=$item->count?>">
                                      </td>
                                     <td class="text-center"><a class="remove-item remove" href="#"      data-id="<?=$item->good_id?>" data-value="<?= $item->price  ?>" title="<?= Lang::t('Remove Item From Cart') ?>">
                                            <button type="button" data-id="169" title="Remove" class="btn btn-danger delete"><i class="fa fa-times-circle"></i></button></a>
@@ -104,7 +104,7 @@ tr:nth-child(even) {
                             </table>
                             <div class="">
                                 <a class="btn btn-danger left" href="<?//= $this->to('catalog/books') ?>"><?= Lang::t('Continue Shopping') ?></a>                               
-                                <a class="btn btn-danger main-bg right" href="<?=Url::to(['site/address'])?>"><?= Lang::t('Proceed to Checkout') ?></a>
+                                <a class="btn btn-danger main-bg right" href="<?=Url::to(['site/complete'])?>"><?= Lang::t('Proceed to Checkout') ?></a>
                             </div>
                                
                             

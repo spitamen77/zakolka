@@ -10,6 +10,7 @@ class SignupForm extends Model
     public $username;
     public $email,$tel;
     public $password,$repeatpass;
+    public $fio,$address,$remark;
 
     public function rules() // Эти правила будут использоваться при валидации: формы ввода, с помощью вызова метода validate(), при попытки сохранения в таблицу БД
     {
@@ -28,6 +29,9 @@ class SignupForm extends Model
             ['password', 'required'],
             ['password', 'string', 'min' => 5],
             ['repeatpass','compare','compareAttribute'=>'password','message' => 'Parollar mos kelmadi'],
+            [['address'], 'string', 'max' => 255],
+            [['remark'], 'string', 'max' => 1024],
+            [['fio'], 'string', 'max' => 255],
         ];
     }
 
@@ -37,7 +41,10 @@ class SignupForm extends Model
             'username' => 'Логин',
             'email' => 'Электронная почта',
             'password' => 'Пароль',
-            'tel' => 'Телефон',
+            'tel' => 'Телефон', 
+            'address' => 'Address',
+            'remark' => 'Remark',
+            'fio' => 'FIO',
         ];
     }
 
@@ -51,7 +58,10 @@ class SignupForm extends Model
         $user = new User(); // Используем AcriveRecord User
         $user->username = $this->username; // Определяем свойства объекта
         $user->email = $this->email;
+        $user->address = $this->address;
+        $user->fio = $this->fio;
         $user->tel = $this->tel;
+        $user->remark = $this->remark;
         $user->status = 5;
         $user->setPassword($this->password);
         $user->generateAuthKey();

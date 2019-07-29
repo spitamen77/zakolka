@@ -106,7 +106,7 @@ setInterval(setDateTime,1);
                         <li class="divider"></li>
                         <li><a class="signup" href="<?=Url::to(['site/signup'])?>"><?=Lang::t('signup')?></a>
                         <li class="divider"></li>
-                        <li><a class="signup" href="<?=Url::to(['login'])?>"><?=Lang::t('login')?></a>
+                        <li><a class="signup" href="<?=Url::to(['site/login'])?>"><?=Lang::t('login')?></a>
                         <? else: ?>
                         <li class="divider"></li>
                         <li><?= Html::a(Lang::t('Logout'), ['site/logout'], ['data' => ['method' => 'post']]) ?>

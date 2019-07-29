@@ -68,7 +68,7 @@ use yii\helpers\Html;
              <div class="col-md-4">
                     <ul >
                         <li > <a class="white" href="#"><span><i class="mar fa fa-map-marker"></i></span>Farģona, Qòqon shahar Navbaxor 26-uy</a></li>
-                        <li> <a class="white" href="#"><span ><i class="mar fa fa-envelope"></i></span>Sardor88.88@mail.ru</a></li>
+                        <li> <a class="white" href="#"><span ><i class="mar fa fa-envelope"></i></span>amina-taqinchoq@mail.ru</a></li>
                         <li> <a class="white" href="#"><span ><i class="mar fa fa-phone"></i></span>+998 93 3826003</a></li>
                         <li> <a class="white" href="#"><span ><i class="mar fa fa-send bold"></i></span>@Sh_M_Aripov</a></li>
                     </ul>  

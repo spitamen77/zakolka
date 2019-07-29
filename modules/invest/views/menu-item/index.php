@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a(Lang::t("Yangi maqola qo`shish"), ['create'], ['class' => 'btn btn-success']) ?>
-        <a href='javascript:history.back()' class='btn btn-danger'>ortga</a>
+        <!-- <a href='javascript:history.back()' class='btn btn-danger'>ortga</a> -->
     </p>
 
     <?= GridView::widget([
