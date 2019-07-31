@@ -107,7 +107,7 @@ class MenuItem extends \yii\db\ActiveRecord
     public static function getXit($menu_id)
     {
         return self::find()->where(['menu_id'=>$menu_id])
-        ->andWhere(['status'=>self::STATUS_ACTIVE])
+        ->andWhere(['status'=>[self::STATUS_ACTIVE,self::STATUS_INACTIVE]])
         ->orderBy(['views'=>SORT_DESC])
         ->limit(3)->all();
     }

@@ -45,7 +45,7 @@ class MenuItem extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['menu_id', 'title', 'text', 'slug', ], 'required'],
+            [['menu_id', 'title',  'slug', ], 'required'],
             ['slug', 'unique', 'message' => 'Slug mavjud'],
             [['menu_id', 'views', 'status', 'price', 'sale','pieces', 'user_id', 'created_date', 'updated_date'], 'integer'],
             [['text'], 'string'],
@@ -124,6 +124,7 @@ class MenuItem extends \yii\db\ActiveRecord
     public function getMenu()
     {
         $menu = Menu::find()->where(['status'=>1])->all();
+        // $menu = Menu::find()->where(['status'=>1])->all();
         $list = [];
         foreach ($menu as $key => $value) {
             $list["$value->id"] = $value->title;

@@ -157,6 +157,7 @@ setInterval(setDateTime,1);
                     <ul class="links">
                         <li><a href="<?=Url::to('site/about')?>" class=""><?=Lang::t('About Us')?></a></li>
                         <li><a href="<?=Url::to('site/pricelist')?>" class=""><?=Lang::t('Price list')?></a></li>
+                         <li><a href="<?=Url::to('site/history')?>" class=""><?=Lang::t('History')?></a></li>
                         <li><a href="<?=Url::to('site/contact')?>" class=""><?=Lang::t('Contacts')?></a></li>
                     </ul>
                 </div>

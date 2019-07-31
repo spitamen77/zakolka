@@ -68,7 +68,13 @@ $menu = Menu::menus();
                                     </div>
 
               </div>
+              <?
+              if ($item->status==0) {?>
+               <button  type="button" class="disabled cart-button cart-button-vrl" data-id="<?=$item->id?>" enabled="enabled"><?=Lang::t("BAzada mavjud emas")?></button>
+             <? } else {?>
+              
                 <button type="button" class="cart-button cart-button-krl" data-id="<?=$item->id?>" enabled="enabled"><?=Lang::t("Sotib olish")?></button>
+                <?}?>
                 <!-- Button fastorder -->
               <div class="button-gruop">
                 <!-- Button fastorder -->

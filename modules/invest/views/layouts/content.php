@@ -39,7 +39,7 @@ use dmstr\widgets\Alert;
     <div class="pull-right hidden-xs">
         <b>Version</b> 2.0
     </div>
-    <strong>Copyright &copy; <?=(date("Y")==2019)?2019:2019 - date("Y")?> <a href="#">Almsaeed Studio</a>.</strong> All rights
+    <strong>Copyright &copy; <?=(date("Y")==2019)?2019:2019 - date("Y")?> <a href="#">DS Studio</a>.</strong> All rights
     reserved.
 </footer>
 

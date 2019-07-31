@@ -56,6 +56,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'price',
             'sale',
             'pieces',
+            [
+              'attribute' => 'status',
+              'filter' => false,
+              // 'format' => 'raw',
+               'value' => function ($model) {
+                   return  $model->getStatus()[$model->status];
+               },
+            ], 
             //'user_id',
             //'created_date',
             //'updated_date',

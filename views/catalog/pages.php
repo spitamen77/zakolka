@@ -4,6 +4,7 @@ use yii\helpers\Url;
 use yii\helpers\Html;
 use app\models\maxpirali\Menu;
 use app\models\maxpirali\MenuItem;
+// use app\models\dilshod\MenuItem;
 use app\models\Lang;
 use yii\widgets\LinkPager;
 
@@ -61,7 +62,13 @@ $this->title = $menu->title;
                                     </div>
 
               </div>
+                <?
+              if ($item->status==0) {?>
+               <button type="button" class="cart-button cart-button-vrl" data-id="<?=$item->id?>" enabled="enabled"><?=Lang::t("BAzada mavjud emas")?></button>
+             <? } else {?>
+              
                 <button type="button" class="cart-button cart-button-krl" data-id="<?=$item->id?>" enabled="enabled"><?=Lang::t("Sotib olish")?></button>
+                <?}?>
                 <!-- Button fastorder -->
               <div class="button-gruop">
                 <!-- Button fastorder -->
@@ -116,7 +123,13 @@ $this->title = $menu->title;
                                     </div>
 
               </div>
+                <?
+              if ($item->status==0) {?>
+               <button type="button" class="cart-button cart-button-vrl" data-id="<?=$item->id?>" enabled="enabled"><?=Lang::t("BAzada mavjud emas")?></button>
+             <? } else {?>
+              
                 <button type="button" class="cart-button cart-button-krl" data-id="<?=$item->id?>" enabled="enabled"><?=Lang::t("Sotib olish")?></button>
+                <?}?>
                 <!-- Button fastorder -->
               <div class="button-gruop">
                 <!-- Button fastorder -->

@@ -265,7 +265,8 @@ class SiteController extends Controller
     public function renderPages($slug)
     {
         $menu = Menu::find()->where(['slug'=>$slug])->one();
-        $query = MenuItem::find()->where(['menu_id'=>$menu->id])->andWhere(['status'=>MenuItem::STATUS_ACTIVE]);
+        // sardor
+        $query = MenuItem::find()->where(['menu_id'=>$menu->id])->andWhere(['status'=>[MenuItem::STATUS_ACTIVE,MenuItem::STATUS_INACTIVE]]);
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count(),'pageSize' => 12 ]);
         $models = $query->offset($pages->offset)
@@ -306,11 +307,26 @@ class SiteController extends Controller
     }
      public function actionPricelist(){
 
-        $price = MenuItem::find()->all();
+        $price = MenuItem::find()->where(['status'=>[1,0]])->all();
 
         return $this->render('pricelist',[
             'items'=>$price,
         ]);
+    }
+
+    public function actionHistory(){
+
+         $model = ShopcartOrders::find()->all();
+         // $model=$model->order_id;
+         return $this->render('history',[
+            'history'=>$model
+         ]);
+
+        // $history = MenuItem::find()->all();
+
+        // return $this->render('history',[
+        //     'history'=>$history,
+        // ]);
     }
 
 

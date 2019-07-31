@@ -40,7 +40,8 @@ class MenuItemSearch extends MenuItem
      */
     public function search($params)
     {
-        $query = MenuItem::find()->where(['status'=>1])->orderBy(['id'=>SORT_DESC]);
+        // $query = MenuItem::find()->where(['status'=>1])->orderBy(['id'=>SORT_DESC]);
+        $query = MenuItem::find()->where(['status'=>[1,0]])->orderBy(['id'=>SORT_DESC]);
 
         // add conditions that should always apply here
 

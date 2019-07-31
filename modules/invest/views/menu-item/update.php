@@ -49,6 +49,7 @@ $this->params['breadcrumbs'][] = 'Update';
 
     <?= $form->field($model, 'sale')->textInput(['class' => 'your form-control']) ?>
     <?= $form->field($model, 'pieces')->textInput(['class' => 'your form-control']) ?>
+    <?= $form->field($model, 'status')->dropDownList($model->getStatus());?>
     </div>
     <?= $form->field($model, 'photo')->fileInput() ?>
 

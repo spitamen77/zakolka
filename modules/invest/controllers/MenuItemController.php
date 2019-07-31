@@ -58,6 +58,10 @@ class MenuItemController extends Controller
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
+
+        // return $this->render('/site/history', [
+        //     'model' => $this->findModel($id),
+        // ]);
     }
 
     /**
