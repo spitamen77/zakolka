@@ -107,6 +107,10 @@ class ShopcartGoods extends \yii\db\ActiveRecord
         }        
     }
 
+    public function getOrder()
+    {
+        return $this->hasOne(ShopcartOrders::className(), ['order_id' => 'order_id']);
+    }
     public function getItem()
     {
         return $this->hasOne(MenuItem::className(), ['id' => 'item_id']);

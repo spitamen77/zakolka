@@ -316,8 +316,8 @@ class SiteController extends Controller
 
     public function actionHistory(){
 
-         $model = ShopcartOrders::find()->all();
-         // $model=$model->order_id;
+         $model = ShopcartOrders::find()->where(['auth_user'=>Yii::$app->user->identity->id])->all();
+         // echo "<pre>"; var_dump($model); die;
          return $this->render('history',[
             'history'=>$model
          ]);

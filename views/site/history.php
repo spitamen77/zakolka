@@ -11,69 +11,49 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div>
     <h1><?= Html::encode($this->title) ?></h1>
+    <? foreach ($history as $key => $value): ?>
     
-  <table style="width: 100%" class="customers">     
-   <th colspan="7">
-     <a style="color: white" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo1">sardor</a>
-   </th>
-  </table>  
+  <table style="width: 100%" class="customers"> 
+
+  <thead> 
+      <tr>
+    <th colspan="2">
+     <a style="color: white" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo<?=$key?>">
+      <?=date('d / m / Y',$value->time)?>
+   </a>
+      </th>
+    <th colspan="2"><?=$value->getCount()?></th>
+    <th colspan="2"><?=$value->getCost()?></th>
+    </tr>
+   </thead>
+    
 
 
-   <table style="width: 100%" id="collapseTwo1" class ="collapse customers">
+   <tbody style="width: 100%" id="collapseTwo<?=$key?>" class ="collapse customers">
   <tr>
-    <th>Nomi</th>
-    <th>Narxi</th>
-    <th>Chegirma</th>
-    <th>pachkadagi soni</th>
-    <th>sotib olingan soni</th>
-    <th>Sotib olingan sana</th>
-    <th>Jami summa</th>
+    <td>Nomi</td>
+    <td>Narxi</td>
+    <td>Chegirma</td>
+    <td>pachkadagi soni</td>
+    <td>sotib olingan soni</td>
+    <td>Jami summa</td>
   </tr>
-  <? foreach ($history as $value):  ?>
+  <? foreach ($value->goods as $k => $item): ?>
   <tr>
-    <td><?=$value->name?></td>
-    <td>2500</td>
-    <td>10</td>
-    <td>20</td>
-    <td>10</td>
-    <td><?=$value->time?></td>
-    <td>2500000</td>
+    <td><?=$item->item->title?></td>
+    <td><?=($item->sale)?$item->price* (1 - $item->sale / 100):$item->price?></td>
+    <td><?=$item->sale?> %</td>
+    <td><?=$item->pieces?></td>
+    <td><?=$item->count?></td>
+    <td><?=$item->getCost()?></td>
   </tr>
-<? endforeach; ?>
- 
+  <? endforeach ?>
+</tbody> 
 </table>
+<? endforeach ?>
 <br>
 
-<table style="width: 100%" class="customers">     
-   <th colspan="7">
-     <a style="color: white" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo2">maxprali</a>
-   </th>
-  </table>  
 
-
-   <table style="width: 100%" id="collapseTwo2" class ="collapse customers">
-  <tr>
-    <th>Nomi</th>
-    <th>Narxi</th>
-    <th>Chegirma</th>
-    <th>pachkadagi soni</th>
-    <th>sotib olingan soni</th>
-    <th>Sotib olingan sana</th>
-    <th>Jami summa</th>
-  </tr>
-  <? foreach ($history as $value):  ?>
-  <tr>
-    <td><?=$value->name?></td>
-    <td>2500</td>
-    <td>10</td>
-    <td>20</td>
-    <td>10</td>
-    <td><?=$value->time?></td>
-    <td>2500000</td>
-  </tr>
-<? endforeach; ?>
- 
-</table>
 
 
 
